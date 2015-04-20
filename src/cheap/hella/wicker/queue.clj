@@ -4,14 +4,18 @@
           [java.util.concurrent ConcurrentHashMap])
   (require [aleph.http :as http]
            [manifold.deferred :as d]
-           [durable-queue :as q]))
+           [durable-queue :as q]
+           [cheap.hella.wicker.seen-urls :as seen]))
 
 (defrecord CrawlContext [
-  url-queue ^BlockingQueue
-  output-queue
+  url-queue
+  ^BlockingQueue output-queue
+  seen-urls
   global-state
+  result-processor
   crawl-policy
   failure-policy
+  exception-handler
   crawl-thread
   stop-condition])
 (defrecord URIFetch [uri crawl-times])
@@ -32,17 +36,30 @@
   {:crawl? (< (:n-tries job) 10)
    :job job})
 
+(defn default-exception-handler
+  [exc]
+  (throw exc))
+
 (defn ->CrawlContext
-  ([queue-path crawl-policy failure-policy]
+  [& args]
+  (let [argmap (if args (apply hash-map args) {})
+        {:keys [queue-path db-path crawl-policy failure-policy result-processor]} argmap]
+    (assert crawl-policy ":crawl-policy not specified")
+    (assert failure-policy ":failure-policy not specified")
+    (assert result-processor ":result-processor not specified")
+    (assert (or (:url-queue argmap) (:queue-path argmap)) "Must specify :url-queue or :queue-path")
+    (assert (or (:seen-urls argmap) (:seen-db-path argmap)) "Musp specify :seen-urls or :seen-db-path")
     (CrawlContext.
-      (q/queues queue-path {})
-      (LinkedBlockingQueue. default-queue-length)
-      (ConcurrentHashMap.)
-      crawl-policy failure-policy
-      nil
-      (atom nil)))
-  ([queue-path]
-    (->CrawlContext queue-path default-crawl-policy default-failure-policy)))
+      (or (:url-queue argmap) (q/queues queue-path {}))
+      (or (:output-queue argmap) (LinkedBlockingQueue. default-queue-length))
+      (or (:seen-urls argmap) (seen/make-db! db-path))
+      (or (:global-state argmap) (ConcurrentHashMap.))
+      result-processor
+      crawl-policy
+      failure-policy
+      (or (:exception-handler argmap) default-exception-handler)
+      (:crawl-thread argmap)
+      (or (:stop-condition argmap) (atom nil)))))
 
 (defprotocol CrawlOutputHandler
   (handle-output! [this crawl-context]))
@@ -102,28 +119,32 @@
 
 (defn crawler
   [^CrawlContext context]
-  (let [{:keys [url-queue stop-condition crawl-policy failure-policy]} context]
+  (let [{:keys [url-queue stop-condition crawl-policy failure-policy seen-urls result-processor]} context]
     (loop []
       (if (realized? stop-condition)
         nil
         (let [next-job (q/take! url-queue :url)
               next-uri (to-uri @next-job)
               policy-result (crawl-policy context @next-job)]
-          (if-not (:crawl? policy-result)
-            (handle-output! policy-result context)
-            (d/on-realized
-              (http-request next-uri)
-              (fn [result] ;; success
-                (try
-                  (do
-                    (handle-output! context result)
-                    (q/complete! url-queue next-job))
-                  (catch Throwable e
-                    (do
-                      (handle-failed-job! context next-job (assoc result :handle-output-exception e))
-                      (throw e)))))
-              (fn [result] ;; failure
-                (handle-failed-job! context next-job result))))
+          (cond
+            (not (:crawl? policy-result)) (handle-output! policy-result context)
+            (seen/url-exists? seen-urls (:uri @next-job)) nil
+            :else (d/on-realized
+                    (http-request next-uri)
+                    (fn [result] ;; success
+                      (future
+                        (try
+                          (do
+                            (doseq [v (result-processor context result)]
+                              (handle-output! v context))
+                            (seen/add-url! (:seen-urls context) (:uri @next-job))
+                            (q/complete! url-queue next-job))
+                          (catch Throwable e
+                            (do
+                              (handle-failed-job! context next-job (assoc result :handle-output-exception e))
+                              (throw e))))))
+                    (fn [result] ;; failure
+                      (handle-failed-job! context next-job result))))
           (recur))))))
 
 (defn start-crawl-thread!
