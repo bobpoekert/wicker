@@ -18,9 +18,9 @@
   exception-handler
   crawl-thread
   stop-condition])
-(defrecord URIFetch [uri crawl-times])
 
-(def default-queue-length 100)
+(def default-local-queue-length 100)
+(def default-persistent-queue-length (* 10, 10 10 10, 10 10 10))
 
 (defn default-crawl-policy
   [context job]
@@ -50,8 +50,8 @@
     (assert (or (:url-queue argmap) (:queue-path argmap)) "Must specify :url-queue or :queue-path")
     (assert (or (:seen-urls argmap) (:seen-db-path argmap)) "Musp specify :seen-urls or :seen-db-path")
     (CrawlContext.
-      (or (:url-queue argmap) (q/queues queue-path {}))
-      (or (:output-queue argmap) (LinkedBlockingQueue. default-queue-length))
+      (or (:url-queue argmap) (q/queues queue-path {:max-queue-size default-persistent-queue-length}))
+      (or (:output-queue argmap) (LinkedBlockingQueue. default-local-queue-length))
       (or (:seen-urls argmap) (seen/make-db! db-path))
       (or (:global-state argmap) (ConcurrentHashMap.))
       result-processor
@@ -70,9 +70,6 @@
     (if (.isAbsolute this)
       (q/put! (:url-queue context) :url {:uri (.toString this)})
       (throw (IllegalArgumentException. (format "URIs to crawl must be absolute (on %s)" (.toString this))))))
-  URIFetch
-  (handle-output! [this context]
-    (q/put! (:url-queue context) :url this))
   Object
   (handle-output! [this context]
     (.put ^BlockingQueue (:output-queue context) this)))
@@ -81,8 +78,6 @@
   (to-uri [this]))
 
 (extend-protocol ToURI
-  URIFetch
-  (to-uri [this] (URI. (:uri this)))
   URI
   (to-uri [this] this)
   String
