@@ -8,7 +8,7 @@
   (let [s (name m)
         s (.substring s 3)
         parts (clojure.string/split s #"(?=\p{Upper})")
-        parts (map #(.toLowerCase %) parts)]
+        parts (map (fn [^String v] (.toLowerCase v)) parts)]
     (keyword (clojure.string/join "-" parts))))
 
 (defmacro defmapwrap
@@ -31,8 +31,8 @@
               ~@(mapcat
                 (fn [method]
                   (let [n (method-name-to-key (:name method))]
-                    [n `(clojure.lang.MapEntry. ~n (. ~inp-sym ~(:name method)))]))
-              nil)))
+                    [n `(clojure.lang.MapEntry. ~n (. ~inp-sym ~(:name method)))])) get-methods)
+              nil))
           (valAt [k#]
             (case k#
               ~@(mapcat
@@ -58,3 +58,4 @@
               (vec))))))))
               
 (defmapwrap uri-map java.net.URI)
+;; (uri-map (java.net.URI. "http://www.google.com/a"))
