@@ -1,6 +1,8 @@
 (ns cheap.hella.wicker.util
   (require [clojure.reflect :as reflect]))
 
+(set! *warn-on-reflection* true)
+
 (defn method-name-to-key
   [m]
   (let [s (name m)
@@ -11,9 +13,10 @@
 
 (defmacro defmapwrap
   "Defines a function that takes an object of type input-type and returns an Associative (ie map) that has keys for all of that classes zero arity getter methods"
-  [nom input-type]
-  (let [inp-sym (gensym "inp")
-        reflection-data (reflect/reflect (resolve input-type))
+  [nom input-type-name]
+  (let [input-type (resolve input-type-name)
+        inp-sym (with-meta (gensym "inp") {:tag input-type-name})
+        reflection-data (reflect/reflect input-type)
         refmethods (filter #(= (type %) clojure.reflect.Method) (:members reflection-data))
         get-methods (filter #(and (= (:parameter-types %) []) ((:flags %) :public) (.startsWith (name (:name %)) "get")) refmethods)]
     `(let [to-map# (fn [~inp-sym] ~(into {} (for [m get-methods] [(method-name-to-key (:name m)) `(. ~inp-sym ~(:name m))])))]
