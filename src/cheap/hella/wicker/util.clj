@@ -1,7 +1,12 @@
 (ns cheap.hella.wicker.util
-  (require [clojure.reflect :as reflect]))
+  (require [clojure.reflect :as reflect]
+           [clojure.core.match :refer [match]]))
 
 (set! *warn-on-reflection* true)
+
+(defmacro forcat
+  [[k s] & bodies]
+  `(mapcat (fn [~k] ~@bodies) s))
 
 (defn method-name-to-key
   [m]
@@ -57,4 +62,4 @@
             (vec)))))))
               
 (defmapwrap uri-map java.net.URI)
-;; (uri-map (java.net.URI. "http://www.google.com/a"))
+;; (uri-map (java.net.URI. "http://www.example.com/a/b?c=d"))
