@@ -7,6 +7,8 @@
           [org.jsoup.select Elements]
           [org.jsoup.nodes Element Document Attributes]))
 
+(set! *warn-on-reflection* true)
+
 (defn ^Elements parse-html
   [inp]
   (Jsoup/parse (byte-streams/convert inp String)))
@@ -64,7 +66,7 @@
 (defn- expr-error!
   [v]
   (->>
-    (prn v)
+    (prn-str v)
     (.trim)
     (str "Invalid expression: ")
     (IllegalArgumentException.)
@@ -92,14 +94,15 @@
 
 (defn- kleene-star-predicate
   [raw-pred node-sym callback rst]
-  `(let [kleene-fn# (fn kleene-fn# [~node-sym]
-              ~(compile-vector-predicate node-sym callback (into [raw-pred] rst))
-              (when-let [match# ~(compile-vector-predicate node-sym (fn [v] true) [raw-pred])]
-                (let [^java.util.List children# (.childNodes ~node-sym)]
-                  (loop [idx# (dec (.size children#))]
-                    (when (>= idx# 0)
-                      (kleene-fn# (.get children# idx#))
-                      (recur (dec idx#)))))))]
+  `(let [kleene-fn#
+          (fn kleene-fn# [~node-sym]
+            ~(compile-vector-predicate node-sym callback (into [raw-pred] rst))
+            (if ~(compile-vector-predicate node-sym (fn [v] true) [raw-pred])
+              (let [^java.util.List children# (.childNodes ~node-sym)]
+                (loop [idx# (dec (.size children#))]
+                  (when (>= idx# 0)
+                    (kleene-fn# (.get children# idx#))
+                    (recur (dec idx#)))))))]
     (kleene-fn# ~node-sym)))
 
 (defn- compile-vector-predicate
@@ -108,15 +111,15 @@
     (callback node-sym)
     (let [[pred & rst] v]
       (cond
-        (vector? pred) (compile-vector-predicate node-sym callback (into pred rst)) ;; flatten
+        (vector? pred) (recur node-sym callback (into pred rst)) ;; flatten
         (= pred :.) (vector-predicate-descend node-sym node-sym callback rst)
-        (keyword? pred) (compile-vector-predicate node-sym callback (into [{:tag-name (name pred)}] rst))
+        (keyword? pred) (recur node-sym callback (into [{:tag-name (name pred)}] rst))
         (symbol? pred) (vector-predicate-descend (list pred node-sym) node-sym callback rst)
         (map? pred) (->
                       `(if (and ~@(->
                                     (fn [[k v]]
                                       (cond
-                                        (string? v) `(= ~(tag-getter node-sym k) ~v)
+                                        (string? v) `(.equals ^String ~(tag-getter node-sym k) ~v)
                                         (instance? java.util.regex.Pattern v)
                                           `(re-matches ~v ~(tag-getter node-sym k))
                                         (symbol? v) `(~v ~(tag-getter node-sym k))
@@ -145,19 +148,50 @@
           pred))
       ~result-sym)))
 
+(bean-match java.net.URI)
+
+(defmacro re-cond
+  [test-var & pairs]
+  (->>
+    (partition 2 pairs)
+    (reverse)
+    (reduce
+      (fn [prev [pattern body]]
+        (let [^java.util.regex.Pattern re (if (vector? pattern) (first pattern) pattern)
+              ^java.util.regex.Matcher test-matcher (.matcher re "test")
+              group-count (.groupCount test-matcher)
+              vars (if (vector? pattern)
+                    (rest pattern)
+                    (map #(symbol (format "group-%d" %)) (range group-count)))
+              matcher-sym (with-meta (gensym "matcher") {:tag 'java.util.regex.Matcher})]
+          `(let [~matcher-sym (.matcher ~re ~test-var)]
+            (if (.matches matcher#)
+              (let ~(->>
+                      (if (empty? vars) [])
+                      (range group-count)
+                      (map vector vars)
+                      (mapcat (fn [[v i]] [v `(.group ~matcher-sym ~i)]))
+                      (vec))
+                ~body)
+              ~prev))))
+      nil)))
+
+(map vector (range 1 10) (range 10 1))
+
+(macroexpand
+  '(re-cond x
+    [#"(a)" start] foo
+    #"b" bar))
+
 (defmacro defparser
   [nom & patterns]
-  (let [uri-sym (with-meta (gensym "uri") {:tag 'java.net.URI})
+  (let [page-src-sym (with-meta (gensym "src") {:tag 'String})
         page-sym (with-meta (gensym "parsed-page") {:tag 'org.jsoup.nodes.Element})]
-    `(defn ~nom [~uri-sym page#]
-      (let [~page-sym (parse-html page#)]
-        (clojure.core.match/match (cheap.hella.wicker.util/uri-map ~uri-sym)
-          ~@(->
-              (fn [[match-expr & bindings]]
-                [match-expr (gen-query-bindings page-sym bindings)])
-              (mapcat patterns)))))))
-
-#_(defparser amazon
-  ({:path "/"}
-   ([(:. :*) {:id "nav-flyout-shopAll"} (:div 2) :span (:span {:text category-name})]
-     category-name)))
+    `(defn ~nom [uri# ~page-src-sym]
+      (re-cond
+        ~@(->
+            (fn [[match-expr & bindings]]
+              [match-expr 
+                `(let [~page-sym (parse-html ~page-src-sym)]
+                  ~(gen-query-bindings page-sym bindings))])
+            (mapcat patterns))))))
