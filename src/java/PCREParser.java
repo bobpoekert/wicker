@@ -1,4 +1,4 @@
-// Generated from PCRE.g4 by ANTLR 4.4
+// Generated from PCRE.g4 by ANTLR 4.5
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class PCREParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.4", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.5", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -37,23 +37,6 @@ public class PCREParser extends Parser {
 		PUC=104, QUC=105, RUC=106, SUC=107, TUC=108, UUC=109, VUC=110, WUC=111, 
 		XUC=112, YUC=113, ZUC=114, D1=115, D2=116, D3=117, D4=118, D5=119, D6=120, 
 		D7=121, D8=122, D9=123, D0=124, OtherChar=125;
-	public static final String[] tokenNames = {
-		"<INVALID>", "Quoted", "BlockQuoted", "'\\a'", "'\\c'", "'\\e'", "'\\f'", 
-		"'\\n'", "'\\r'", "'\\t'", "'\\'", "HexChar", "'.'", "'\\C'", "'\\d'", 
-		"'\\D'", "'\\h'", "'\\H'", "'\\N'", "CharWithProperty", "CharWithoutProperty", 
-		"'\\R'", "'\\s'", "'\\S'", "'\\v'", "'\\V'", "'\\w'", "'\\W'", "'\\X'", 
-		"'['", "']'", "'^'", "'-'", "POSIXNamedSet", "POSIXNegatedNamedSet", "'?'", 
-		"'+'", "'*'", "'{'", "'}'", "','", "'\\b'", "'\\B'", "'\\A'", "'$'", "'\\Z'", 
-		"'\\z'", "'\\G'", "'\\K'", "'\\g'", "'\\k'", "'|'", "'('", "')'", "'<'", 
-		"'>'", "'''", "'_'", "':'", "'#'", "'='", "'!'", "'&'", "'a'", "'b'", 
-		"'c'", "'d'", "'e'", "'f'", "'g'", "'h'", "'i'", "'j'", "'k'", "'l'", 
-		"'m'", "'n'", "'o'", "'p'", "'q'", "'r'", "'s'", "'t'", "'u'", "'v'", 
-		"'w'", "'x'", "'y'", "'z'", "'A'", "'B'", "'C'", "'D'", "'E'", "'F'", 
-		"'G'", "'H'", "'I'", "'J'", "'K'", "'L'", "'M'", "'N'", "'O'", "'P'", 
-		"'Q'", "'R'", "'S'", "'T'", "'U'", "'V'", "'W'", "'X'", "'Y'", "'Z'", 
-		"'1'", "'2'", "'3'", "'4'", "'5'", "'6'", "'7'", "'8'", "'9'", "'0'", 
-		"OtherChar"
-	};
 	public static final int
 		RULE_parse = 0, RULE_alternation = 1, RULE_expr = 2, RULE_element = 3, 
 		RULE_quantifier = 4, RULE_quantifier_type = 5, RULE_character_class = 6, 
@@ -76,11 +59,77 @@ public class PCREParser extends Parser {
 		"name", "alpha_nums", "non_close_parens", "non_close_paren", "letter"
 	};
 
-	@Override
-	public String getGrammarFileName() { return "PCRE.g4"; }
+	private static final String[] _LITERAL_NAMES = {
+		null, null, null, "'\\a'", "'\\c'", "'\\e'", "'\\f'", "'\\n'", "'\\r'", 
+		"'\\t'", "'\\'", null, "'.'", "'\\C'", "'\\d'", "'\\D'", "'\\h'", "'\\H'", 
+		"'\\N'", null, null, "'\\R'", "'\\s'", "'\\S'", "'\\v'", "'\\V'", "'\\w'", 
+		"'\\W'", "'\\X'", "'['", "']'", "'^'", "'-'", null, null, "'?'", "'+'", 
+		"'*'", "'{'", "'}'", "','", "'\\b'", "'\\B'", "'\\A'", "'$'", "'\\Z'", 
+		"'\\z'", "'\\G'", "'\\K'", "'\\g'", "'\\k'", "'|'", "'('", "')'", "'<'", 
+		"'>'", "'''", "'_'", "':'", "'#'", "'='", "'!'", "'&'", "'a'", "'b'", 
+		"'c'", "'d'", "'e'", "'f'", "'g'", "'h'", "'i'", "'j'", "'k'", "'l'", 
+		"'m'", "'n'", "'o'", "'p'", "'q'", "'r'", "'s'", "'t'", "'u'", "'v'", 
+		"'w'", "'x'", "'y'", "'z'", "'A'", "'B'", "'C'", "'D'", "'E'", "'F'", 
+		"'G'", "'H'", "'I'", "'J'", "'K'", "'L'", "'M'", "'N'", "'O'", "'P'", 
+		"'Q'", "'R'", "'S'", "'T'", "'U'", "'V'", "'W'", "'X'", "'Y'", "'Z'", 
+		"'1'", "'2'", "'3'", "'4'", "'5'", "'6'", "'7'", "'8'", "'9'", "'0'"
+	};
+	private static final String[] _SYMBOLIC_NAMES = {
+		null, "Quoted", "BlockQuoted", "BellChar", "ControlChar", "EscapeChar", 
+		"FormFeed", "NewLine", "CarriageReturn", "Tab", "Backslash", "HexChar", 
+		"Dot", "OneDataUnit", "DecimalDigit", "NotDecimalDigit", "HorizontalWhiteSpace", 
+		"NotHorizontalWhiteSpace", "NotNewLine", "CharWithProperty", "CharWithoutProperty", 
+		"NewLineSequence", "WhiteSpace", "NotWhiteSpace", "VerticalWhiteSpace", 
+		"NotVerticalWhiteSpace", "WordChar", "NotWordChar", "ExtendedUnicodeChar", 
+		"CharacterClassStart", "CharacterClassEnd", "Caret", "Hyphen", "POSIXNamedSet", 
+		"POSIXNegatedNamedSet", "QuestionMark", "Plus", "Star", "OpenBrace", "CloseBrace", 
+		"Comma", "WordBoundary", "NonWordBoundary", "StartOfSubject", "EndOfSubjectOrLine", 
+		"EndOfSubjectOrLineEndOfSubject", "EndOfSubject", "PreviousMatchInSubject", 
+		"ResetStartMatch", "SubroutineOrNamedReferenceStartG", "NamedReferenceStartK", 
+		"Pipe", "OpenParen", "CloseParen", "LessThan", "GreaterThan", "SingleQuote", 
+		"Underscore", "Colon", "Hash", "Equals", "Exclamation", "Ampersand", "ALC", 
+		"BLC", "CLC", "DLC", "ELC", "FLC", "GLC", "HLC", "ILC", "JLC", "KLC", 
+		"LLC", "MLC", "NLC", "OLC", "PLC", "QLC", "RLC", "SLC", "TLC", "ULC", 
+		"VLC", "WLC", "XLC", "YLC", "ZLC", "AUC", "BUC", "CUC", "DUC", "EUC", 
+		"FUC", "GUC", "HUC", "IUC", "JUC", "KUC", "LUC", "MUC", "NUC", "OUC", 
+		"PUC", "QUC", "RUC", "SUC", "TUC", "UUC", "VUC", "WUC", "XUC", "YUC", 
+		"ZUC", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D0", "OtherChar"
+	};
+	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+		tokenNames = new String[_SYMBOLIC_NAMES.length];
+		for (int i = 0; i < tokenNames.length; i++) {
+			tokenNames[i] = VOCABULARY.getLiteralName(i);
+			if (tokenNames[i] == null) {
+				tokenNames[i] = VOCABULARY.getSymbolicName(i);
+			}
+
+			if (tokenNames[i] == null) {
+				tokenNames[i] = "<INVALID>";
+			}
+		}
+	}
 
 	@Override
-	public String[] getTokenNames() { return tokenNames; }
+	@Deprecated
+	public String[] getTokenNames() {
+		return tokenNames;
+	}
+
+	@Override
+
+	public Vocabulary getVocabulary() {
+		return VOCABULARY;
+	}
+
+	@Override
+	public String getGrammarFileName() { return "PCRE.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -120,8 +169,10 @@ public class PCREParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74); alternation();
-			setState(75); match(EOF);
+			setState(74);
+			alternation();
+			setState(75);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -163,7 +214,8 @@ public class PCREParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(77); expr();
+			setState(77);
+			expr();
 			setState(82);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
@@ -171,8 +223,10 @@ public class PCREParser extends Parser {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(78); match(Pipe);
-					setState(79); expr();
+					setState(78);
+					match(Pipe);
+					setState(79);
+					expr();
 					}
 					} 
 				}
@@ -227,7 +281,8 @@ public class PCREParser extends Parser {
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << OneDataUnit) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << ExtendedUnicodeChar) | (1L << CharacterClassStart) | (1L << CharacterClassEnd) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << NonWordBoundary) | (1L << StartOfSubject) | (1L << EndOfSubjectOrLine) | (1L << EndOfSubjectOrLineEndOfSubject) | (1L << EndOfSubject) | (1L << PreviousMatchInSubject) | (1L << ResetStartMatch) | (1L << SubroutineOrNamedReferenceStartG) | (1L << NamedReferenceStartK) | (1L << OpenParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0)) {
 				{
 				{
-				setState(85); element();
+				setState(85);
+				element();
 				}
 				}
 				setState(90);
@@ -248,11 +303,11 @@ public class PCREParser extends Parser {
 	}
 
 	public static class ElementContext extends ParserRuleContext {
-		public QuantifierContext quantifier() {
-			return getRuleContext(QuantifierContext.class,0);
-		}
 		public AtomContext atom() {
 			return getRuleContext(AtomContext.class,0);
+		}
+		public QuantifierContext quantifier() {
+			return getRuleContext(QuantifierContext.class,0);
 		}
 		public ElementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -274,12 +329,14 @@ public class PCREParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91); atom();
+			setState(91);
+			atom();
 			setState(93);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				{
-				setState(92); quantifier();
+				setState(92);
+				quantifier();
 				}
 				break;
 			}
@@ -297,14 +354,14 @@ public class PCREParser extends Parser {
 	}
 
 	public static class QuantifierContext extends ParserRuleContext {
+		public Quantifier_typeContext quantifier_type() {
+			return getRuleContext(Quantifier_typeContext.class,0);
+		}
 		public List<NumberContext> number() {
 			return getRuleContexts(NumberContext.class);
 		}
 		public NumberContext number(int i) {
 			return getRuleContext(NumberContext.class,i);
-		}
-		public Quantifier_typeContext quantifier_type() {
-			return getRuleContext(Quantifier_typeContext.class,0);
 		}
 		public QuantifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -329,52 +386,73 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(95); match(QuestionMark);
-				setState(96); quantifier_type();
+				setState(95);
+				match(QuestionMark);
+				setState(96);
+				quantifier_type();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(97); match(Plus);
-				setState(98); quantifier_type();
+				setState(97);
+				match(Plus);
+				setState(98);
+				quantifier_type();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(99); match(Star);
-				setState(100); quantifier_type();
+				setState(99);
+				match(Star);
+				setState(100);
+				quantifier_type();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(101); match(OpenBrace);
-				setState(102); number();
-				setState(103); match(CloseBrace);
-				setState(104); quantifier_type();
+				setState(101);
+				match(OpenBrace);
+				setState(102);
+				number();
+				setState(103);
+				match(CloseBrace);
+				setState(104);
+				quantifier_type();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(106); match(OpenBrace);
-				setState(107); number();
-				setState(108); match(Comma);
-				setState(109); match(CloseBrace);
-				setState(110); quantifier_type();
+				setState(106);
+				match(OpenBrace);
+				setState(107);
+				number();
+				setState(108);
+				match(Comma);
+				setState(109);
+				match(CloseBrace);
+				setState(110);
+				quantifier_type();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(112); match(OpenBrace);
-				setState(113); number();
-				setState(114); match(Comma);
-				setState(115); number();
-				setState(116); match(CloseBrace);
-				setState(117); quantifier_type();
+				setState(112);
+				match(OpenBrace);
+				setState(113);
+				number();
+				setState(114);
+				match(Comma);
+				setState(115);
+				number();
+				setState(116);
+				match(CloseBrace);
+				setState(117);
+				quantifier_type();
 				}
 				break;
 			}
@@ -414,13 +492,15 @@ public class PCREParser extends Parser {
 			case Plus:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(121); match(Plus);
+				setState(121);
+				match(Plus);
 				}
 				break;
 			case QuestionMark:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(122); match(QuestionMark);
+				setState(122);
+				match(QuestionMark);
 				}
 				break;
 			case EOF:
@@ -566,13 +646,13 @@ public class PCREParser extends Parser {
 	}
 
 	public static class Character_classContext extends ParserRuleContext {
-		public Cc_atomContext cc_atom(int i) {
-			return getRuleContext(Cc_atomContext.class,i);
-		}
 		public TerminalNode CharacterClassEnd() { return getToken(PCREParser.CharacterClassEnd, 0); }
 		public TerminalNode Hyphen() { return getToken(PCREParser.Hyphen, 0); }
 		public List<Cc_atomContext> cc_atom() {
 			return getRuleContexts(Cc_atomContext.class);
+		}
+		public Cc_atomContext cc_atom(int i) {
+			return getRuleContext(Cc_atomContext.class,i);
 		}
 		public Character_classContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -598,130 +678,157 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(126); match(CharacterClassStart);
-				setState(127); match(Caret);
-				setState(128); match(CharacterClassEnd);
-				setState(129); match(Hyphen);
+				setState(126);
+				match(CharacterClassStart);
+				setState(127);
+				match(Caret);
+				setState(128);
+				match(CharacterClassEnd);
+				setState(129);
+				match(Hyphen);
 				setState(131); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(130); cc_atom();
+					setState(130);
+					cc_atom();
 					}
 					}
 					setState(133); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << CharacterClassStart) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << QuestionMark) | (1L << Plus) | (1L << Star) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << EndOfSubjectOrLine) | (1L << Pipe) | (1L << OpenParen) | (1L << CloseParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0) );
-				setState(135); match(CharacterClassEnd);
+				setState(135);
+				match(CharacterClassEnd);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(137); match(CharacterClassStart);
-				setState(138); match(Caret);
-				setState(139); match(CharacterClassEnd);
+				setState(137);
+				match(CharacterClassStart);
+				setState(138);
+				match(Caret);
+				setState(139);
+				match(CharacterClassEnd);
 				setState(143);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << CharacterClassStart) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << QuestionMark) | (1L << Plus) | (1L << Star) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << EndOfSubjectOrLine) | (1L << Pipe) | (1L << OpenParen) | (1L << CloseParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0)) {
 					{
 					{
-					setState(140); cc_atom();
+					setState(140);
+					cc_atom();
 					}
 					}
 					setState(145);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(146); match(CharacterClassEnd);
+				setState(146);
+				match(CharacterClassEnd);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(147); match(CharacterClassStart);
-				setState(148); match(Caret);
+				setState(147);
+				match(CharacterClassStart);
+				setState(148);
+				match(Caret);
 				setState(150); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(149); cc_atom();
+					setState(149);
+					cc_atom();
 					}
 					}
 					setState(152); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << CharacterClassStart) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << QuestionMark) | (1L << Plus) | (1L << Star) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << EndOfSubjectOrLine) | (1L << Pipe) | (1L << OpenParen) | (1L << CloseParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0) );
-				setState(154); match(CharacterClassEnd);
+				setState(154);
+				match(CharacterClassEnd);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(156); match(CharacterClassStart);
-				setState(157); match(CharacterClassEnd);
-				setState(158); match(Hyphen);
+				setState(156);
+				match(CharacterClassStart);
+				setState(157);
+				match(CharacterClassEnd);
+				setState(158);
+				match(Hyphen);
 				setState(160); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(159); cc_atom();
+					setState(159);
+					cc_atom();
 					}
 					}
 					setState(162); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << CharacterClassStart) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << QuestionMark) | (1L << Plus) | (1L << Star) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << EndOfSubjectOrLine) | (1L << Pipe) | (1L << OpenParen) | (1L << CloseParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0) );
-				setState(164); match(CharacterClassEnd);
+				setState(164);
+				match(CharacterClassEnd);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(166); match(CharacterClassStart);
-				setState(167); match(CharacterClassEnd);
+				setState(166);
+				match(CharacterClassStart);
+				setState(167);
+				match(CharacterClassEnd);
 				setState(171);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << CharacterClassStart) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << QuestionMark) | (1L << Plus) | (1L << Star) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << EndOfSubjectOrLine) | (1L << Pipe) | (1L << OpenParen) | (1L << CloseParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0)) {
 					{
 					{
-					setState(168); cc_atom();
+					setState(168);
+					cc_atom();
 					}
 					}
 					setState(173);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(174); match(CharacterClassEnd);
+				setState(174);
+				match(CharacterClassEnd);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(175); match(CharacterClassStart);
+				setState(175);
+				match(CharacterClassStart);
 				setState(177); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(176); cc_atom();
+					setState(176);
+					cc_atom();
 					}
 					}
 					setState(179); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Quoted) | (1L << BlockQuoted) | (1L << BellChar) | (1L << ControlChar) | (1L << EscapeChar) | (1L << FormFeed) | (1L << NewLine) | (1L << CarriageReturn) | (1L << Tab) | (1L << Backslash) | (1L << HexChar) | (1L << Dot) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << CharacterClassStart) | (1L << Caret) | (1L << Hyphen) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet) | (1L << QuestionMark) | (1L << Plus) | (1L << Star) | (1L << OpenBrace) | (1L << CloseBrace) | (1L << Comma) | (1L << WordBoundary) | (1L << EndOfSubjectOrLine) | (1L << Pipe) | (1L << OpenParen) | (1L << CloseParen) | (1L << LessThan) | (1L << GreaterThan) | (1L << SingleQuote) | (1L << Underscore) | (1L << Colon) | (1L << Hash) | (1L << Equals) | (1L << Exclamation) | (1L << Ampersand) | (1L << ALC))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (BLC - 64)) | (1L << (CLC - 64)) | (1L << (DLC - 64)) | (1L << (ELC - 64)) | (1L << (FLC - 64)) | (1L << (GLC - 64)) | (1L << (HLC - 64)) | (1L << (ILC - 64)) | (1L << (JLC - 64)) | (1L << (KLC - 64)) | (1L << (LLC - 64)) | (1L << (MLC - 64)) | (1L << (NLC - 64)) | (1L << (OLC - 64)) | (1L << (PLC - 64)) | (1L << (QLC - 64)) | (1L << (RLC - 64)) | (1L << (SLC - 64)) | (1L << (TLC - 64)) | (1L << (ULC - 64)) | (1L << (VLC - 64)) | (1L << (WLC - 64)) | (1L << (XLC - 64)) | (1L << (YLC - 64)) | (1L << (ZLC - 64)) | (1L << (AUC - 64)) | (1L << (BUC - 64)) | (1L << (CUC - 64)) | (1L << (DUC - 64)) | (1L << (EUC - 64)) | (1L << (FUC - 64)) | (1L << (GUC - 64)) | (1L << (HUC - 64)) | (1L << (IUC - 64)) | (1L << (JUC - 64)) | (1L << (KUC - 64)) | (1L << (LUC - 64)) | (1L << (MUC - 64)) | (1L << (NUC - 64)) | (1L << (OUC - 64)) | (1L << (PUC - 64)) | (1L << (QUC - 64)) | (1L << (RUC - 64)) | (1L << (SUC - 64)) | (1L << (TUC - 64)) | (1L << (UUC - 64)) | (1L << (VUC - 64)) | (1L << (WUC - 64)) | (1L << (XUC - 64)) | (1L << (YUC - 64)) | (1L << (ZUC - 64)) | (1L << (D1 - 64)) | (1L << (D2 - 64)) | (1L << (D3 - 64)) | (1L << (D4 - 64)) | (1L << (D5 - 64)) | (1L << (D6 - 64)) | (1L << (D7 - 64)) | (1L << (D8 - 64)) | (1L << (D9 - 64)) | (1L << (D0 - 64)) | (1L << (OtherChar - 64)))) != 0) );
-				setState(181); match(CharacterClassEnd);
+				setState(181);
+				match(CharacterClassEnd);
 				}
 				break;
 			}
@@ -738,11 +845,11 @@ public class PCREParser extends Parser {
 	}
 
 	public static class BackreferenceContext extends ParserRuleContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
 		public Backreference_or_octalContext backreference_or_octal() {
 			return getRuleContext(Backreference_or_octalContext.class,0);
+		}
+		public NumberContext number() {
+			return getRuleContext(NumberContext.class,0);
 		}
 		public NameContext name() {
 			return getRuleContext(NameContext.class,0);
@@ -770,80 +877,114 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(185); backreference_or_octal();
+				setState(185);
+				backreference_or_octal();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(186); match(SubroutineOrNamedReferenceStartG);
-				setState(187); number();
+				setState(186);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(187);
+				number();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(188); match(SubroutineOrNamedReferenceStartG);
-				setState(189); match(OpenBrace);
-				setState(190); number();
-				setState(191); match(CloseBrace);
+				setState(188);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(189);
+				match(OpenBrace);
+				setState(190);
+				number();
+				setState(191);
+				match(CloseBrace);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(193); match(SubroutineOrNamedReferenceStartG);
-				setState(194); match(OpenBrace);
-				setState(195); match(Hyphen);
-				setState(196); number();
-				setState(197); match(CloseBrace);
+				setState(193);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(194);
+				match(OpenBrace);
+				setState(195);
+				match(Hyphen);
+				setState(196);
+				number();
+				setState(197);
+				match(CloseBrace);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(199); match(NamedReferenceStartK);
-				setState(200); match(LessThan);
-				setState(201); name();
-				setState(202); match(GreaterThan);
+				setState(199);
+				match(NamedReferenceStartK);
+				setState(200);
+				match(LessThan);
+				setState(201);
+				name();
+				setState(202);
+				match(GreaterThan);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(204); match(NamedReferenceStartK);
-				setState(205); match(SingleQuote);
-				setState(206); name();
-				setState(207); match(SingleQuote);
+				setState(204);
+				match(NamedReferenceStartK);
+				setState(205);
+				match(SingleQuote);
+				setState(206);
+				name();
+				setState(207);
+				match(SingleQuote);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(209); match(SubroutineOrNamedReferenceStartG);
-				setState(210); match(OpenBrace);
-				setState(211); name();
-				setState(212); match(CloseBrace);
+				setState(209);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(210);
+				match(OpenBrace);
+				setState(211);
+				name();
+				setState(212);
+				match(CloseBrace);
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(214); match(NamedReferenceStartK);
-				setState(215); match(OpenBrace);
-				setState(216); name();
-				setState(217); match(CloseBrace);
+				setState(214);
+				match(NamedReferenceStartK);
+				setState(215);
+				match(OpenBrace);
+				setState(216);
+				name();
+				setState(217);
+				match(CloseBrace);
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(219); match(OpenParen);
-				setState(220); match(QuestionMark);
-				setState(221); match(PUC);
-				setState(222); match(Equals);
-				setState(223); name();
-				setState(224); match(CloseParen);
+				setState(219);
+				match(OpenParen);
+				setState(220);
+				match(QuestionMark);
+				setState(221);
+				match(PUC);
+				setState(222);
+				match(Equals);
+				setState(223);
+				name();
+				setState(224);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -860,10 +1001,10 @@ public class PCREParser extends Parser {
 	}
 
 	public static class Backreference_or_octalContext extends ParserRuleContext {
-		public TerminalNode Backslash() { return getToken(PCREParser.Backslash, 0); }
 		public Octal_charContext octal_char() {
 			return getRuleContext(Octal_charContext.class,0);
 		}
+		public TerminalNode Backslash() { return getToken(PCREParser.Backslash, 0); }
 		public DigitContext digit() {
 			return getRuleContext(DigitContext.class,0);
 		}
@@ -890,14 +1031,17 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(228); octal_char();
+				setState(228);
+				octal_char();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(229); match(Backslash);
-				setState(230); digit();
+				setState(229);
+				match(Backslash);
+				setState(230);
+				digit();
 				}
 				break;
 			}
@@ -914,11 +1058,11 @@ public class PCREParser extends Parser {
 	}
 
 	public static class CaptureContext extends ParserRuleContext {
-		public AlternationContext alternation() {
-			return getRuleContext(AlternationContext.class,0);
-		}
 		public NameContext name() {
 			return getRuleContext(NameContext.class,0);
+		}
+		public AlternationContext alternation() {
+			return getRuleContext(AlternationContext.class,0);
 		}
 		public CaptureContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -943,46 +1087,71 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(233); match(OpenParen);
-				setState(234); match(QuestionMark);
-				setState(235); match(LessThan);
-				setState(236); name();
-				setState(237); match(GreaterThan);
-				setState(238); alternation();
-				setState(239); match(CloseParen);
+				setState(233);
+				match(OpenParen);
+				setState(234);
+				match(QuestionMark);
+				setState(235);
+				match(LessThan);
+				setState(236);
+				name();
+				setState(237);
+				match(GreaterThan);
+				setState(238);
+				alternation();
+				setState(239);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(241); match(OpenParen);
-				setState(242); match(QuestionMark);
-				setState(243); match(SingleQuote);
-				setState(244); name();
-				setState(245); match(SingleQuote);
-				setState(246); alternation();
-				setState(247); match(CloseParen);
+				setState(241);
+				match(OpenParen);
+				setState(242);
+				match(QuestionMark);
+				setState(243);
+				match(SingleQuote);
+				setState(244);
+				name();
+				setState(245);
+				match(SingleQuote);
+				setState(246);
+				alternation();
+				setState(247);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(249); match(OpenParen);
-				setState(250); match(QuestionMark);
-				setState(251); match(PUC);
-				setState(252); match(LessThan);
-				setState(253); name();
-				setState(254); match(GreaterThan);
-				setState(255); alternation();
-				setState(256); match(CloseParen);
+				setState(249);
+				match(OpenParen);
+				setState(250);
+				match(QuestionMark);
+				setState(251);
+				match(PUC);
+				setState(252);
+				match(LessThan);
+				setState(253);
+				name();
+				setState(254);
+				match(GreaterThan);
+				setState(255);
+				alternation();
+				setState(256);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(258); match(OpenParen);
-				setState(259); alternation();
-				setState(260); match(CloseParen);
+				setState(258);
+				match(OpenParen);
+				setState(259);
+				alternation();
+				setState(260);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -1025,31 +1194,46 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(264); match(OpenParen);
-				setState(265); match(QuestionMark);
-				setState(266); match(Colon);
-				setState(267); alternation();
-				setState(268); match(CloseParen);
+				setState(264);
+				match(OpenParen);
+				setState(265);
+				match(QuestionMark);
+				setState(266);
+				match(Colon);
+				setState(267);
+				alternation();
+				setState(268);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(270); match(OpenParen);
-				setState(271); match(QuestionMark);
-				setState(272); match(Pipe);
-				setState(273); alternation();
-				setState(274); match(CloseParen);
+				setState(270);
+				match(OpenParen);
+				setState(271);
+				match(QuestionMark);
+				setState(272);
+				match(Pipe);
+				setState(273);
+				alternation();
+				setState(274);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(276); match(OpenParen);
-				setState(277); match(QuestionMark);
-				setState(278); match(GreaterThan);
-				setState(279); alternation();
-				setState(280); match(CloseParen);
+				setState(276);
+				match(OpenParen);
+				setState(277);
+				match(QuestionMark);
+				setState(278);
+				match(GreaterThan);
+				setState(279);
+				alternation();
+				setState(280);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -1089,11 +1273,16 @@ public class PCREParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(284); match(OpenParen);
-			setState(285); match(QuestionMark);
-			setState(286); match(Hash);
-			setState(287); non_close_parens();
-			setState(288); match(CloseParen);
+			setState(284);
+			match(OpenParen);
+			setState(285);
+			match(QuestionMark);
+			setState(286);
+			match(Hash);
+			setState(287);
+			non_close_parens();
+			setState(288);
+			match(CloseParen);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1108,11 +1297,11 @@ public class PCREParser extends Parser {
 	}
 
 	public static class OptionContext extends ParserRuleContext {
-		public Option_flagsContext option_flags(int i) {
-			return getRuleContext(Option_flagsContext.class,i);
-		}
 		public List<Option_flagsContext> option_flags() {
 			return getRuleContexts(Option_flagsContext.class);
+		}
+		public Option_flagsContext option_flags(int i) {
+			return getRuleContext(Option_flagsContext.class,i);
 		}
 		public OptionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1137,87 +1326,138 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(290); match(OpenParen);
-				setState(291); match(QuestionMark);
-				setState(292); option_flags();
-				setState(293); match(Hyphen);
-				setState(294); option_flags();
-				setState(295); match(CloseParen);
+				setState(290);
+				match(OpenParen);
+				setState(291);
+				match(QuestionMark);
+				setState(292);
+				option_flags();
+				setState(293);
+				match(Hyphen);
+				setState(294);
+				option_flags();
+				setState(295);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(297); match(OpenParen);
-				setState(298); match(QuestionMark);
-				setState(299); option_flags();
-				setState(300); match(CloseParen);
+				setState(297);
+				match(OpenParen);
+				setState(298);
+				match(QuestionMark);
+				setState(299);
+				option_flags();
+				setState(300);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(302); match(OpenParen);
-				setState(303); match(QuestionMark);
-				setState(304); match(Hyphen);
-				setState(305); option_flags();
-				setState(306); match(CloseParen);
+				setState(302);
+				match(OpenParen);
+				setState(303);
+				match(QuestionMark);
+				setState(304);
+				match(Hyphen);
+				setState(305);
+				option_flags();
+				setState(306);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(308); match(OpenParen);
-				setState(309); match(Star);
-				setState(310); match(NUC);
-				setState(311); match(OUC);
-				setState(312); match(Underscore);
-				setState(313); match(SUC);
-				setState(314); match(TUC);
-				setState(315); match(AUC);
-				setState(316); match(RUC);
-				setState(317); match(TUC);
-				setState(318); match(Underscore);
-				setState(319); match(OUC);
-				setState(320); match(PUC);
-				setState(321); match(TUC);
-				setState(322); match(CloseParen);
+				setState(308);
+				match(OpenParen);
+				setState(309);
+				match(Star);
+				setState(310);
+				match(NUC);
+				setState(311);
+				match(OUC);
+				setState(312);
+				match(Underscore);
+				setState(313);
+				match(SUC);
+				setState(314);
+				match(TUC);
+				setState(315);
+				match(AUC);
+				setState(316);
+				match(RUC);
+				setState(317);
+				match(TUC);
+				setState(318);
+				match(Underscore);
+				setState(319);
+				match(OUC);
+				setState(320);
+				match(PUC);
+				setState(321);
+				match(TUC);
+				setState(322);
+				match(CloseParen);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(323); match(OpenParen);
-				setState(324); match(Star);
-				setState(325); match(UUC);
-				setState(326); match(TUC);
-				setState(327); match(FUC);
-				setState(328); match(D8);
-				setState(329); match(CloseParen);
+				setState(323);
+				match(OpenParen);
+				setState(324);
+				match(Star);
+				setState(325);
+				match(UUC);
+				setState(326);
+				match(TUC);
+				setState(327);
+				match(FUC);
+				setState(328);
+				match(D8);
+				setState(329);
+				match(CloseParen);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(330); match(OpenParen);
-				setState(331); match(Star);
-				setState(332); match(UUC);
-				setState(333); match(TUC);
-				setState(334); match(FUC);
-				setState(335); match(D1);
-				setState(336); match(D6);
-				setState(337); match(CloseParen);
+				setState(330);
+				match(OpenParen);
+				setState(331);
+				match(Star);
+				setState(332);
+				match(UUC);
+				setState(333);
+				match(TUC);
+				setState(334);
+				match(FUC);
+				setState(335);
+				match(D1);
+				setState(336);
+				match(D6);
+				setState(337);
+				match(CloseParen);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(338); match(OpenParen);
-				setState(339); match(Star);
-				setState(340); match(UUC);
-				setState(341); match(CUC);
-				setState(342); match(PUC);
-				setState(343); match(CloseParen);
+				setState(338);
+				match(OpenParen);
+				setState(339);
+				match(Star);
+				setState(340);
+				match(UUC);
+				setState(341);
+				match(CUC);
+				setState(342);
+				match(PUC);
+				setState(343);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -1267,7 +1507,8 @@ public class PCREParser extends Parser {
 			do {
 				{
 				{
-				setState(346); option_flag();
+				setState(346);
+				option_flag();
 				}
 				}
 				setState(349); 
@@ -1313,8 +1554,9 @@ public class PCREParser extends Parser {
 			_la = _input.LA(1);
 			if ( !(((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (ILC - 71)) | (1L << (MLC - 71)) | (1L << (SLC - 71)) | (1L << (XLC - 71)) | (1L << (JUC - 71)) | (1L << (UUC - 71)))) != 0)) ) {
 			_errHandler.recoverInline(this);
+			} else {
+				consume();
 			}
-			consume();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1355,43 +1597,65 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(353); match(OpenParen);
-				setState(354); match(QuestionMark);
-				setState(355); match(Equals);
-				setState(356); alternation();
-				setState(357); match(CloseParen);
+				setState(353);
+				match(OpenParen);
+				setState(354);
+				match(QuestionMark);
+				setState(355);
+				match(Equals);
+				setState(356);
+				alternation();
+				setState(357);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(359); match(OpenParen);
-				setState(360); match(QuestionMark);
-				setState(361); match(Exclamation);
-				setState(362); alternation();
-				setState(363); match(CloseParen);
+				setState(359);
+				match(OpenParen);
+				setState(360);
+				match(QuestionMark);
+				setState(361);
+				match(Exclamation);
+				setState(362);
+				alternation();
+				setState(363);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(365); match(OpenParen);
-				setState(366); match(QuestionMark);
-				setState(367); match(LessThan);
-				setState(368); match(Equals);
-				setState(369); alternation();
-				setState(370); match(CloseParen);
+				setState(365);
+				match(OpenParen);
+				setState(366);
+				match(QuestionMark);
+				setState(367);
+				match(LessThan);
+				setState(368);
+				match(Equals);
+				setState(369);
+				alternation();
+				setState(370);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(372); match(OpenParen);
-				setState(373); match(QuestionMark);
-				setState(374); match(LessThan);
-				setState(375); match(Exclamation);
-				setState(376); alternation();
-				setState(377); match(CloseParen);
+				setState(372);
+				match(OpenParen);
+				setState(373);
+				match(QuestionMark);
+				setState(374);
+				match(LessThan);
+				setState(375);
+				match(Exclamation);
+				setState(376);
+				alternation();
+				setState(377);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -1437,136 +1701,201 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(381); match(OpenParen);
-				setState(382); match(QuestionMark);
-				setState(383); match(RUC);
-				setState(384); match(CloseParen);
+				setState(381);
+				match(OpenParen);
+				setState(382);
+				match(QuestionMark);
+				setState(383);
+				match(RUC);
+				setState(384);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(385); match(OpenParen);
-				setState(386); match(QuestionMark);
-				setState(387); number();
-				setState(388); match(CloseParen);
+				setState(385);
+				match(OpenParen);
+				setState(386);
+				match(QuestionMark);
+				setState(387);
+				number();
+				setState(388);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(390); match(OpenParen);
-				setState(391); match(QuestionMark);
-				setState(392); match(Plus);
-				setState(393); number();
-				setState(394); match(CloseParen);
+				setState(390);
+				match(OpenParen);
+				setState(391);
+				match(QuestionMark);
+				setState(392);
+				match(Plus);
+				setState(393);
+				number();
+				setState(394);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(396); match(OpenParen);
-				setState(397); match(QuestionMark);
-				setState(398); match(Hyphen);
-				setState(399); number();
-				setState(400); match(CloseParen);
+				setState(396);
+				match(OpenParen);
+				setState(397);
+				match(QuestionMark);
+				setState(398);
+				match(Hyphen);
+				setState(399);
+				number();
+				setState(400);
+				match(CloseParen);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(402); match(OpenParen);
-				setState(403); match(QuestionMark);
-				setState(404); match(Ampersand);
-				setState(405); name();
-				setState(406); match(CloseParen);
+				setState(402);
+				match(OpenParen);
+				setState(403);
+				match(QuestionMark);
+				setState(404);
+				match(Ampersand);
+				setState(405);
+				name();
+				setState(406);
+				match(CloseParen);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(408); match(OpenParen);
-				setState(409); match(QuestionMark);
-				setState(410); match(PUC);
-				setState(411); match(GreaterThan);
-				setState(412); name();
-				setState(413); match(CloseParen);
+				setState(408);
+				match(OpenParen);
+				setState(409);
+				match(QuestionMark);
+				setState(410);
+				match(PUC);
+				setState(411);
+				match(GreaterThan);
+				setState(412);
+				name();
+				setState(413);
+				match(CloseParen);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(415); match(SubroutineOrNamedReferenceStartG);
-				setState(416); match(LessThan);
-				setState(417); name();
-				setState(418); match(GreaterThan);
+				setState(415);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(416);
+				match(LessThan);
+				setState(417);
+				name();
+				setState(418);
+				match(GreaterThan);
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(420); match(SubroutineOrNamedReferenceStartG);
-				setState(421); match(SingleQuote);
-				setState(422); name();
-				setState(423); match(SingleQuote);
+				setState(420);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(421);
+				match(SingleQuote);
+				setState(422);
+				name();
+				setState(423);
+				match(SingleQuote);
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(425); match(SubroutineOrNamedReferenceStartG);
-				setState(426); match(LessThan);
-				setState(427); number();
-				setState(428); match(GreaterThan);
+				setState(425);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(426);
+				match(LessThan);
+				setState(427);
+				number();
+				setState(428);
+				match(GreaterThan);
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(430); match(SubroutineOrNamedReferenceStartG);
-				setState(431); match(SingleQuote);
-				setState(432); number();
-				setState(433); match(SingleQuote);
+				setState(430);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(431);
+				match(SingleQuote);
+				setState(432);
+				number();
+				setState(433);
+				match(SingleQuote);
 				}
 				break;
 			case 11:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(435); match(SubroutineOrNamedReferenceStartG);
-				setState(436); match(LessThan);
-				setState(437); match(Plus);
-				setState(438); number();
-				setState(439); match(GreaterThan);
+				setState(435);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(436);
+				match(LessThan);
+				setState(437);
+				match(Plus);
+				setState(438);
+				number();
+				setState(439);
+				match(GreaterThan);
 				}
 				break;
 			case 12:
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(441); match(SubroutineOrNamedReferenceStartG);
-				setState(442); match(SingleQuote);
-				setState(443); match(Plus);
-				setState(444); number();
-				setState(445); match(SingleQuote);
+				setState(441);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(442);
+				match(SingleQuote);
+				setState(443);
+				match(Plus);
+				setState(444);
+				number();
+				setState(445);
+				match(SingleQuote);
 				}
 				break;
 			case 13:
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(447); match(SubroutineOrNamedReferenceStartG);
-				setState(448); match(LessThan);
-				setState(449); match(Hyphen);
-				setState(450); number();
-				setState(451); match(GreaterThan);
+				setState(447);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(448);
+				match(LessThan);
+				setState(449);
+				match(Hyphen);
+				setState(450);
+				number();
+				setState(451);
+				match(GreaterThan);
 				}
 				break;
 			case 14:
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(453); match(SubroutineOrNamedReferenceStartG);
-				setState(454); match(SingleQuote);
-				setState(455); match(Hyphen);
-				setState(456); number();
-				setState(457); match(SingleQuote);
+				setState(453);
+				match(SubroutineOrNamedReferenceStartG);
+				setState(454);
+				match(SingleQuote);
+				setState(455);
+				match(Hyphen);
+				setState(456);
+				number();
+				setState(457);
+				match(SingleQuote);
 				}
 				break;
 			}
@@ -1589,11 +1918,11 @@ public class PCREParser extends Parser {
 		public List<AlternationContext> alternation() {
 			return getRuleContexts(AlternationContext.class);
 		}
-		public NameContext name() {
-			return getRuleContext(NameContext.class,0);
-		}
 		public AlternationContext alternation(int i) {
 			return getRuleContext(AlternationContext.class,i);
+		}
+		public NameContext name() {
+			return getRuleContext(NameContext.class,0);
 		}
 		public ConditionalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1619,251 +1948,369 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(461); match(OpenParen);
-				setState(462); match(QuestionMark);
-				setState(463); match(OpenParen);
-				setState(464); number();
-				setState(465); match(CloseParen);
-				setState(466); alternation();
+				setState(461);
+				match(OpenParen);
+				setState(462);
+				match(QuestionMark);
+				setState(463);
+				match(OpenParen);
+				setState(464);
+				number();
+				setState(465);
+				match(CloseParen);
+				setState(466);
+				alternation();
 				setState(469);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(467); match(Pipe);
-					setState(468); alternation();
+					setState(467);
+					match(Pipe);
+					setState(468);
+					alternation();
 					}
 				}
 
-				setState(471); match(CloseParen);
+				setState(471);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(473); match(OpenParen);
-				setState(474); match(QuestionMark);
-				setState(475); match(OpenParen);
-				setState(476); match(Plus);
-				setState(477); number();
-				setState(478); match(CloseParen);
-				setState(479); alternation();
+				setState(473);
+				match(OpenParen);
+				setState(474);
+				match(QuestionMark);
+				setState(475);
+				match(OpenParen);
+				setState(476);
+				match(Plus);
+				setState(477);
+				number();
+				setState(478);
+				match(CloseParen);
+				setState(479);
+				alternation();
 				setState(482);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(480); match(Pipe);
-					setState(481); alternation();
+					setState(480);
+					match(Pipe);
+					setState(481);
+					alternation();
 					}
 				}
 
-				setState(484); match(CloseParen);
+				setState(484);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(486); match(OpenParen);
-				setState(487); match(QuestionMark);
-				setState(488); match(OpenParen);
-				setState(489); match(Hyphen);
-				setState(490); number();
-				setState(491); match(CloseParen);
-				setState(492); alternation();
+				setState(486);
+				match(OpenParen);
+				setState(487);
+				match(QuestionMark);
+				setState(488);
+				match(OpenParen);
+				setState(489);
+				match(Hyphen);
+				setState(490);
+				number();
+				setState(491);
+				match(CloseParen);
+				setState(492);
+				alternation();
 				setState(495);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(493); match(Pipe);
-					setState(494); alternation();
+					setState(493);
+					match(Pipe);
+					setState(494);
+					alternation();
 					}
 				}
 
-				setState(497); match(CloseParen);
+				setState(497);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(499); match(OpenParen);
-				setState(500); match(QuestionMark);
-				setState(501); match(OpenParen);
-				setState(502); match(LessThan);
-				setState(503); name();
-				setState(504); match(GreaterThan);
-				setState(505); match(CloseParen);
-				setState(506); alternation();
+				setState(499);
+				match(OpenParen);
+				setState(500);
+				match(QuestionMark);
+				setState(501);
+				match(OpenParen);
+				setState(502);
+				match(LessThan);
+				setState(503);
+				name();
+				setState(504);
+				match(GreaterThan);
+				setState(505);
+				match(CloseParen);
+				setState(506);
+				alternation();
 				setState(509);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(507); match(Pipe);
-					setState(508); alternation();
+					setState(507);
+					match(Pipe);
+					setState(508);
+					alternation();
 					}
 				}
 
-				setState(511); match(CloseParen);
+				setState(511);
+				match(CloseParen);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(513); match(OpenParen);
-				setState(514); match(QuestionMark);
-				setState(515); match(OpenParen);
-				setState(516); match(SingleQuote);
-				setState(517); name();
-				setState(518); match(SingleQuote);
-				setState(519); match(CloseParen);
-				setState(520); alternation();
+				setState(513);
+				match(OpenParen);
+				setState(514);
+				match(QuestionMark);
+				setState(515);
+				match(OpenParen);
+				setState(516);
+				match(SingleQuote);
+				setState(517);
+				name();
+				setState(518);
+				match(SingleQuote);
+				setState(519);
+				match(CloseParen);
+				setState(520);
+				alternation();
 				setState(523);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(521); match(Pipe);
-					setState(522); alternation();
+					setState(521);
+					match(Pipe);
+					setState(522);
+					alternation();
 					}
 				}
 
-				setState(525); match(CloseParen);
+				setState(525);
+				match(CloseParen);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(527); match(OpenParen);
-				setState(528); match(QuestionMark);
-				setState(529); match(OpenParen);
-				setState(530); match(RUC);
-				setState(531); number();
-				setState(532); match(CloseParen);
-				setState(533); alternation();
+				setState(527);
+				match(OpenParen);
+				setState(528);
+				match(QuestionMark);
+				setState(529);
+				match(OpenParen);
+				setState(530);
+				match(RUC);
+				setState(531);
+				number();
+				setState(532);
+				match(CloseParen);
+				setState(533);
+				alternation();
 				setState(536);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(534); match(Pipe);
-					setState(535); alternation();
+					setState(534);
+					match(Pipe);
+					setState(535);
+					alternation();
 					}
 				}
 
-				setState(538); match(CloseParen);
+				setState(538);
+				match(CloseParen);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(540); match(OpenParen);
-				setState(541); match(QuestionMark);
-				setState(542); match(OpenParen);
-				setState(543); match(RUC);
-				setState(544); match(CloseParen);
-				setState(545); alternation();
+				setState(540);
+				match(OpenParen);
+				setState(541);
+				match(QuestionMark);
+				setState(542);
+				match(OpenParen);
+				setState(543);
+				match(RUC);
+				setState(544);
+				match(CloseParen);
+				setState(545);
+				alternation();
 				setState(548);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(546); match(Pipe);
-					setState(547); alternation();
+					setState(546);
+					match(Pipe);
+					setState(547);
+					alternation();
 					}
 				}
 
-				setState(550); match(CloseParen);
+				setState(550);
+				match(CloseParen);
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(552); match(OpenParen);
-				setState(553); match(QuestionMark);
-				setState(554); match(OpenParen);
-				setState(555); match(RUC);
-				setState(556); match(Ampersand);
-				setState(557); name();
-				setState(558); match(CloseParen);
-				setState(559); alternation();
+				setState(552);
+				match(OpenParen);
+				setState(553);
+				match(QuestionMark);
+				setState(554);
+				match(OpenParen);
+				setState(555);
+				match(RUC);
+				setState(556);
+				match(Ampersand);
+				setState(557);
+				name();
+				setState(558);
+				match(CloseParen);
+				setState(559);
+				alternation();
 				setState(562);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(560); match(Pipe);
-					setState(561); alternation();
+					setState(560);
+					match(Pipe);
+					setState(561);
+					alternation();
 					}
 				}
 
-				setState(564); match(CloseParen);
+				setState(564);
+				match(CloseParen);
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(566); match(OpenParen);
-				setState(567); match(QuestionMark);
-				setState(568); match(OpenParen);
-				setState(569); match(DUC);
-				setState(570); match(EUC);
-				setState(571); match(FUC);
-				setState(572); match(IUC);
-				setState(573); match(NUC);
-				setState(574); match(EUC);
-				setState(575); match(CloseParen);
-				setState(576); alternation();
+				setState(566);
+				match(OpenParen);
+				setState(567);
+				match(QuestionMark);
+				setState(568);
+				match(OpenParen);
+				setState(569);
+				match(DUC);
+				setState(570);
+				match(EUC);
+				setState(571);
+				match(FUC);
+				setState(572);
+				match(IUC);
+				setState(573);
+				match(NUC);
+				setState(574);
+				match(EUC);
+				setState(575);
+				match(CloseParen);
+				setState(576);
+				alternation();
 				setState(579);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(577); match(Pipe);
-					setState(578); alternation();
+					setState(577);
+					match(Pipe);
+					setState(578);
+					alternation();
 					}
 				}
 
-				setState(581); match(CloseParen);
+				setState(581);
+				match(CloseParen);
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(583); match(OpenParen);
-				setState(584); match(QuestionMark);
-				setState(585); match(OpenParen);
-				setState(586); match(ALC);
-				setState(587); match(SLC);
-				setState(588); match(SLC);
-				setState(589); match(ELC);
-				setState(590); match(RLC);
-				setState(591); match(TLC);
-				setState(592); match(CloseParen);
-				setState(593); alternation();
+				setState(583);
+				match(OpenParen);
+				setState(584);
+				match(QuestionMark);
+				setState(585);
+				match(OpenParen);
+				setState(586);
+				match(ALC);
+				setState(587);
+				match(SLC);
+				setState(588);
+				match(SLC);
+				setState(589);
+				match(ELC);
+				setState(590);
+				match(RLC);
+				setState(591);
+				match(TLC);
+				setState(592);
+				match(CloseParen);
+				setState(593);
+				alternation();
 				setState(596);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(594); match(Pipe);
-					setState(595); alternation();
+					setState(594);
+					match(Pipe);
+					setState(595);
+					alternation();
 					}
 				}
 
-				setState(598); match(CloseParen);
+				setState(598);
+				match(CloseParen);
 				}
 				break;
 			case 11:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(600); match(OpenParen);
-				setState(601); match(QuestionMark);
-				setState(602); match(OpenParen);
-				setState(603); name();
-				setState(604); match(CloseParen);
-				setState(605); alternation();
+				setState(600);
+				match(OpenParen);
+				setState(601);
+				match(QuestionMark);
+				setState(602);
+				match(OpenParen);
+				setState(603);
+				name();
+				setState(604);
+				match(CloseParen);
+				setState(605);
+				alternation();
 				setState(608);
 				_la = _input.LA(1);
 				if (_la==Pipe) {
 					{
-					setState(606); match(Pipe);
-					setState(607); alternation();
+					setState(606);
+					match(Pipe);
+					setState(607);
+					alternation();
 					}
 				}
 
-				setState(610); match(CloseParen);
+				setState(610);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -1904,161 +2351,257 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(614); match(OpenParen);
-				setState(615); match(Star);
-				setState(616); match(AUC);
-				setState(617); match(CUC);
-				setState(618); match(CUC);
-				setState(619); match(EUC);
-				setState(620); match(PUC);
-				setState(621); match(TUC);
-				setState(622); match(CloseParen);
+				setState(614);
+				match(OpenParen);
+				setState(615);
+				match(Star);
+				setState(616);
+				match(AUC);
+				setState(617);
+				match(CUC);
+				setState(618);
+				match(CUC);
+				setState(619);
+				match(EUC);
+				setState(620);
+				match(PUC);
+				setState(621);
+				match(TUC);
+				setState(622);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(623); match(OpenParen);
-				setState(624); match(Star);
-				setState(625); match(FUC);
+				setState(623);
+				match(OpenParen);
+				setState(624);
+				match(Star);
+				setState(625);
+				match(FUC);
 				setState(629);
 				_la = _input.LA(1);
 				if (_la==AUC) {
 					{
-					setState(626); match(AUC);
-					setState(627); match(IUC);
-					setState(628); match(LUC);
+					setState(626);
+					match(AUC);
+					setState(627);
+					match(IUC);
+					setState(628);
+					match(LUC);
 					}
 				}
 
-				setState(631); match(CloseParen);
+				setState(631);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(632); match(OpenParen);
-				setState(633); match(Star);
+				setState(632);
+				match(OpenParen);
+				setState(633);
+				match(Star);
 				setState(638);
 				_la = _input.LA(1);
 				if (_la==MUC) {
 					{
-					setState(634); match(MUC);
-					setState(635); match(AUC);
-					setState(636); match(RUC);
-					setState(637); match(KUC);
+					setState(634);
+					match(MUC);
+					setState(635);
+					match(AUC);
+					setState(636);
+					match(RUC);
+					setState(637);
+					match(KUC);
 					}
 				}
 
-				setState(640); match(Colon);
-				setState(641); match(NUC);
-				setState(642); match(AUC);
-				setState(643); match(MUC);
-				setState(644); match(EUC);
-				setState(645); match(CloseParen);
+				setState(640);
+				match(Colon);
+				setState(641);
+				match(NUC);
+				setState(642);
+				match(AUC);
+				setState(643);
+				match(MUC);
+				setState(644);
+				match(EUC);
+				setState(645);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(646); match(OpenParen);
-				setState(647); match(Star);
-				setState(648); match(CUC);
-				setState(649); match(OUC);
-				setState(650); match(MUC);
-				setState(651); match(MUC);
-				setState(652); match(IUC);
-				setState(653); match(TUC);
-				setState(654); match(CloseParen);
+				setState(646);
+				match(OpenParen);
+				setState(647);
+				match(Star);
+				setState(648);
+				match(CUC);
+				setState(649);
+				match(OUC);
+				setState(650);
+				match(MUC);
+				setState(651);
+				match(MUC);
+				setState(652);
+				match(IUC);
+				setState(653);
+				match(TUC);
+				setState(654);
+				match(CloseParen);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(655); match(OpenParen);
-				setState(656); match(Star);
-				setState(657); match(PUC);
-				setState(658); match(RUC);
-				setState(659); match(UUC);
-				setState(660); match(NUC);
-				setState(661); match(EUC);
-				setState(662); match(CloseParen);
+				setState(655);
+				match(OpenParen);
+				setState(656);
+				match(Star);
+				setState(657);
+				match(PUC);
+				setState(658);
+				match(RUC);
+				setState(659);
+				match(UUC);
+				setState(660);
+				match(NUC);
+				setState(661);
+				match(EUC);
+				setState(662);
+				match(CloseParen);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(663); match(OpenParen);
-				setState(664); match(Star);
-				setState(665); match(PUC);
-				setState(666); match(RUC);
-				setState(667); match(UUC);
-				setState(668); match(NUC);
-				setState(669); match(EUC);
-				setState(670); match(Colon);
-				setState(671); match(NUC);
-				setState(672); match(AUC);
-				setState(673); match(MUC);
-				setState(674); match(EUC);
-				setState(675); match(CloseParen);
+				setState(663);
+				match(OpenParen);
+				setState(664);
+				match(Star);
+				setState(665);
+				match(PUC);
+				setState(666);
+				match(RUC);
+				setState(667);
+				match(UUC);
+				setState(668);
+				match(NUC);
+				setState(669);
+				match(EUC);
+				setState(670);
+				match(Colon);
+				setState(671);
+				match(NUC);
+				setState(672);
+				match(AUC);
+				setState(673);
+				match(MUC);
+				setState(674);
+				match(EUC);
+				setState(675);
+				match(CloseParen);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(676); match(OpenParen);
-				setState(677); match(Star);
-				setState(678); match(SUC);
-				setState(679); match(KUC);
-				setState(680); match(IUC);
-				setState(681); match(PUC);
-				setState(682); match(CloseParen);
+				setState(676);
+				match(OpenParen);
+				setState(677);
+				match(Star);
+				setState(678);
+				match(SUC);
+				setState(679);
+				match(KUC);
+				setState(680);
+				match(IUC);
+				setState(681);
+				match(PUC);
+				setState(682);
+				match(CloseParen);
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(683); match(OpenParen);
-				setState(684); match(Star);
-				setState(685); match(SUC);
-				setState(686); match(KUC);
-				setState(687); match(IUC);
-				setState(688); match(PUC);
-				setState(689); match(Colon);
-				setState(690); match(NUC);
-				setState(691); match(AUC);
-				setState(692); match(MUC);
-				setState(693); match(EUC);
-				setState(694); match(CloseParen);
+				setState(683);
+				match(OpenParen);
+				setState(684);
+				match(Star);
+				setState(685);
+				match(SUC);
+				setState(686);
+				match(KUC);
+				setState(687);
+				match(IUC);
+				setState(688);
+				match(PUC);
+				setState(689);
+				match(Colon);
+				setState(690);
+				match(NUC);
+				setState(691);
+				match(AUC);
+				setState(692);
+				match(MUC);
+				setState(693);
+				match(EUC);
+				setState(694);
+				match(CloseParen);
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(695); match(OpenParen);
-				setState(696); match(Star);
-				setState(697); match(TUC);
-				setState(698); match(HUC);
-				setState(699); match(EUC);
-				setState(700); match(NUC);
-				setState(701); match(CloseParen);
+				setState(695);
+				match(OpenParen);
+				setState(696);
+				match(Star);
+				setState(697);
+				match(TUC);
+				setState(698);
+				match(HUC);
+				setState(699);
+				match(EUC);
+				setState(700);
+				match(NUC);
+				setState(701);
+				match(CloseParen);
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(702); match(OpenParen);
-				setState(703); match(Star);
-				setState(704); match(TUC);
-				setState(705); match(HUC);
-				setState(706); match(EUC);
-				setState(707); match(NUC);
-				setState(708); match(Colon);
-				setState(709); match(NUC);
-				setState(710); match(AUC);
-				setState(711); match(MUC);
-				setState(712); match(EUC);
-				setState(713); match(CloseParen);
+				setState(702);
+				match(OpenParen);
+				setState(703);
+				match(Star);
+				setState(704);
+				match(TUC);
+				setState(705);
+				match(HUC);
+				setState(706);
+				match(EUC);
+				setState(707);
+				match(NUC);
+				setState(708);
+				match(Colon);
+				setState(709);
+				match(NUC);
+				setState(710);
+				match(AUC);
+				setState(711);
+				match(MUC);
+				setState(712);
+				match(EUC);
+				setState(713);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -2098,97 +2641,158 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(716); match(OpenParen);
-				setState(717); match(Star);
-				setState(718); match(CUC);
-				setState(719); match(RUC);
-				setState(720); match(CloseParen);
+				setState(716);
+				match(OpenParen);
+				setState(717);
+				match(Star);
+				setState(718);
+				match(CUC);
+				setState(719);
+				match(RUC);
+				setState(720);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(721); match(OpenParen);
-				setState(722); match(Star);
-				setState(723); match(LUC);
-				setState(724); match(FUC);
-				setState(725); match(CloseParen);
+				setState(721);
+				match(OpenParen);
+				setState(722);
+				match(Star);
+				setState(723);
+				match(LUC);
+				setState(724);
+				match(FUC);
+				setState(725);
+				match(CloseParen);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(726); match(OpenParen);
-				setState(727); match(Star);
-				setState(728); match(CUC);
-				setState(729); match(RUC);
-				setState(730); match(LUC);
-				setState(731); match(FUC);
-				setState(732); match(CloseParen);
+				setState(726);
+				match(OpenParen);
+				setState(727);
+				match(Star);
+				setState(728);
+				match(CUC);
+				setState(729);
+				match(RUC);
+				setState(730);
+				match(LUC);
+				setState(731);
+				match(FUC);
+				setState(732);
+				match(CloseParen);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(733); match(OpenParen);
-				setState(734); match(Star);
-				setState(735); match(AUC);
-				setState(736); match(NUC);
-				setState(737); match(YUC);
-				setState(738); match(CUC);
-				setState(739); match(RUC);
-				setState(740); match(LUC);
-				setState(741); match(FUC);
-				setState(742); match(CloseParen);
+				setState(733);
+				match(OpenParen);
+				setState(734);
+				match(Star);
+				setState(735);
+				match(AUC);
+				setState(736);
+				match(NUC);
+				setState(737);
+				match(YUC);
+				setState(738);
+				match(CUC);
+				setState(739);
+				match(RUC);
+				setState(740);
+				match(LUC);
+				setState(741);
+				match(FUC);
+				setState(742);
+				match(CloseParen);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(743); match(OpenParen);
-				setState(744); match(Star);
-				setState(745); match(AUC);
-				setState(746); match(NUC);
-				setState(747); match(YUC);
-				setState(748); match(CloseParen);
+				setState(743);
+				match(OpenParen);
+				setState(744);
+				match(Star);
+				setState(745);
+				match(AUC);
+				setState(746);
+				match(NUC);
+				setState(747);
+				match(YUC);
+				setState(748);
+				match(CloseParen);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(749); match(OpenParen);
-				setState(750); match(Star);
-				setState(751); match(BUC);
-				setState(752); match(SUC);
-				setState(753); match(RUC);
-				setState(754); match(Underscore);
-				setState(755); match(AUC);
-				setState(756); match(NUC);
-				setState(757); match(YUC);
-				setState(758); match(CUC);
-				setState(759); match(RUC);
-				setState(760); match(LUC);
-				setState(761); match(FUC);
-				setState(762); match(CloseParen);
+				setState(749);
+				match(OpenParen);
+				setState(750);
+				match(Star);
+				setState(751);
+				match(BUC);
+				setState(752);
+				match(SUC);
+				setState(753);
+				match(RUC);
+				setState(754);
+				match(Underscore);
+				setState(755);
+				match(AUC);
+				setState(756);
+				match(NUC);
+				setState(757);
+				match(YUC);
+				setState(758);
+				match(CUC);
+				setState(759);
+				match(RUC);
+				setState(760);
+				match(LUC);
+				setState(761);
+				match(FUC);
+				setState(762);
+				match(CloseParen);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(763); match(OpenParen);
-				setState(764); match(Star);
-				setState(765); match(BUC);
-				setState(766); match(SUC);
-				setState(767); match(RUC);
-				setState(768); match(Underscore);
-				setState(769); match(UUC);
-				setState(770); match(NUC);
-				setState(771); match(IUC);
-				setState(772); match(CUC);
-				setState(773); match(OUC);
-				setState(774); match(DUC);
-				setState(775); match(EUC);
-				setState(776); match(CloseParen);
+				setState(763);
+				match(OpenParen);
+				setState(764);
+				match(Star);
+				setState(765);
+				match(BUC);
+				setState(766);
+				match(SUC);
+				setState(767);
+				match(RUC);
+				setState(768);
+				match(Underscore);
+				setState(769);
+				match(UUC);
+				setState(770);
+				match(NUC);
+				setState(771);
+				match(IUC);
+				setState(772);
+				match(CUC);
+				setState(773);
+				match(OUC);
+				setState(774);
+				match(DUC);
+				setState(775);
+				match(EUC);
+				setState(776);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -2231,20 +2835,29 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(779); match(OpenParen);
-				setState(780); match(QuestionMark);
-				setState(781); match(CUC);
-				setState(782); match(CloseParen);
+				setState(779);
+				match(OpenParen);
+				setState(780);
+				match(QuestionMark);
+				setState(781);
+				match(CUC);
+				setState(782);
+				match(CloseParen);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(783); match(OpenParen);
-				setState(784); match(QuestionMark);
-				setState(785); match(CUC);
-				setState(786); number();
-				setState(787); match(CloseParen);
+				setState(783);
+				match(OpenParen);
+				setState(784);
+				match(QuestionMark);
+				setState(785);
+				match(CUC);
+				setState(786);
+				number();
+				setState(787);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -2261,60 +2874,60 @@ public class PCREParser extends Parser {
 	}
 
 	public static class AtomContext extends ParserRuleContext {
-		public TerminalNode OneDataUnit() { return getToken(PCREParser.OneDataUnit, 0); }
-		public Character_classContext character_class() {
-			return getRuleContext(Character_classContext.class,0);
-		}
 		public Subroutine_referenceContext subroutine_reference() {
 			return getRuleContext(Subroutine_referenceContext.class,0);
 		}
-		public TerminalNode ExtendedUnicodeChar() { return getToken(PCREParser.ExtendedUnicodeChar, 0); }
-		public TerminalNode ResetStartMatch() { return getToken(PCREParser.ResetStartMatch, 0); }
-		public CalloutContext callout() {
-			return getRuleContext(CalloutContext.class,0);
-		}
-		public BackreferenceContext backreference() {
-			return getRuleContext(BackreferenceContext.class,0);
-		}
-		public TerminalNode StartOfSubject() { return getToken(PCREParser.StartOfSubject, 0); }
-		public OptionContext option() {
-			return getRuleContext(OptionContext.class,0);
+		public Shared_atomContext shared_atom() {
+			return getRuleContext(Shared_atomContext.class,0);
 		}
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
 		}
-		public Newline_conventionContext newline_convention() {
-			return getRuleContext(Newline_conventionContext.class,0);
-		}
-		public CommentContext comment() {
-			return getRuleContext(CommentContext.class,0);
-		}
-		public TerminalNode PreviousMatchInSubject() { return getToken(PCREParser.PreviousMatchInSubject, 0); }
-		public TerminalNode WordBoundary() { return getToken(PCREParser.WordBoundary, 0); }
-		public TerminalNode Dot() { return getToken(PCREParser.Dot, 0); }
-		public Shared_atomContext shared_atom() {
-			return getRuleContext(Shared_atomContext.class,0);
+		public Character_classContext character_class() {
+			return getRuleContext(Character_classContext.class,0);
 		}
 		public CaptureContext capture() {
 			return getRuleContext(CaptureContext.class,0);
 		}
-		public TerminalNode Caret() { return getToken(PCREParser.Caret, 0); }
-		public TerminalNode EndOfSubjectOrLine() { return getToken(PCREParser.EndOfSubjectOrLine, 0); }
-		public Backtrack_controlContext backtrack_control() {
-			return getRuleContext(Backtrack_controlContext.class,0);
+		public Non_captureContext non_capture() {
+			return getRuleContext(Non_captureContext.class,0);
 		}
-		public TerminalNode NonWordBoundary() { return getToken(PCREParser.NonWordBoundary, 0); }
-		public TerminalNode EndOfSubject() { return getToken(PCREParser.EndOfSubject, 0); }
+		public CommentContext comment() {
+			return getRuleContext(CommentContext.class,0);
+		}
+		public OptionContext option() {
+			return getRuleContext(OptionContext.class,0);
+		}
 		public Look_aroundContext look_around() {
 			return getRuleContext(Look_aroundContext.class,0);
+		}
+		public BackreferenceContext backreference() {
+			return getRuleContext(BackreferenceContext.class,0);
 		}
 		public ConditionalContext conditional() {
 			return getRuleContext(ConditionalContext.class,0);
 		}
-		public Non_captureContext non_capture() {
-			return getRuleContext(Non_captureContext.class,0);
+		public Backtrack_controlContext backtrack_control() {
+			return getRuleContext(Backtrack_controlContext.class,0);
 		}
+		public Newline_conventionContext newline_convention() {
+			return getRuleContext(Newline_conventionContext.class,0);
+		}
+		public CalloutContext callout() {
+			return getRuleContext(CalloutContext.class,0);
+		}
+		public TerminalNode Dot() { return getToken(PCREParser.Dot, 0); }
+		public TerminalNode Caret() { return getToken(PCREParser.Caret, 0); }
+		public TerminalNode StartOfSubject() { return getToken(PCREParser.StartOfSubject, 0); }
+		public TerminalNode WordBoundary() { return getToken(PCREParser.WordBoundary, 0); }
+		public TerminalNode NonWordBoundary() { return getToken(PCREParser.NonWordBoundary, 0); }
+		public TerminalNode EndOfSubjectOrLine() { return getToken(PCREParser.EndOfSubjectOrLine, 0); }
 		public TerminalNode EndOfSubjectOrLineEndOfSubject() { return getToken(PCREParser.EndOfSubjectOrLineEndOfSubject, 0); }
+		public TerminalNode EndOfSubject() { return getToken(PCREParser.EndOfSubject, 0); }
+		public TerminalNode PreviousMatchInSubject() { return getToken(PCREParser.PreviousMatchInSubject, 0); }
+		public TerminalNode ResetStartMatch() { return getToken(PCREParser.ResetStartMatch, 0); }
+		public TerminalNode OneDataUnit() { return getToken(PCREParser.OneDataUnit, 0); }
+		public TerminalNode ExtendedUnicodeChar() { return getToken(PCREParser.ExtendedUnicodeChar, 0); }
 		public AtomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2338,157 +2951,183 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(791); subroutine_reference();
+				setState(791);
+				subroutine_reference();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(792); shared_atom();
+				setState(792);
+				shared_atom();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(793); literal();
+				setState(793);
+				literal();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(794); character_class();
+				setState(794);
+				character_class();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(795); capture();
+				setState(795);
+				capture();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(796); non_capture();
+				setState(796);
+				non_capture();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(797); comment();
+				setState(797);
+				comment();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(798); option();
+				setState(798);
+				option();
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(799); look_around();
+				setState(799);
+				look_around();
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(800); backreference();
+				setState(800);
+				backreference();
 				}
 				break;
 			case 11:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(801); conditional();
+				setState(801);
+				conditional();
 				}
 				break;
 			case 12:
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(802); backtrack_control();
+				setState(802);
+				backtrack_control();
 				}
 				break;
 			case 13:
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(803); newline_convention();
+				setState(803);
+				newline_convention();
 				}
 				break;
 			case 14:
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(804); callout();
+				setState(804);
+				callout();
 				}
 				break;
 			case 15:
 				enterOuterAlt(_localctx, 15);
 				{
-				setState(805); match(Dot);
+				setState(805);
+				match(Dot);
 				}
 				break;
 			case 16:
 				enterOuterAlt(_localctx, 16);
 				{
-				setState(806); match(Caret);
+				setState(806);
+				match(Caret);
 				}
 				break;
 			case 17:
 				enterOuterAlt(_localctx, 17);
 				{
-				setState(807); match(StartOfSubject);
+				setState(807);
+				match(StartOfSubject);
 				}
 				break;
 			case 18:
 				enterOuterAlt(_localctx, 18);
 				{
-				setState(808); match(WordBoundary);
+				setState(808);
+				match(WordBoundary);
 				}
 				break;
 			case 19:
 				enterOuterAlt(_localctx, 19);
 				{
-				setState(809); match(NonWordBoundary);
+				setState(809);
+				match(NonWordBoundary);
 				}
 				break;
 			case 20:
 				enterOuterAlt(_localctx, 20);
 				{
-				setState(810); match(EndOfSubjectOrLine);
+				setState(810);
+				match(EndOfSubjectOrLine);
 				}
 				break;
 			case 21:
 				enterOuterAlt(_localctx, 21);
 				{
-				setState(811); match(EndOfSubjectOrLineEndOfSubject);
+				setState(811);
+				match(EndOfSubjectOrLineEndOfSubject);
 				}
 				break;
 			case 22:
 				enterOuterAlt(_localctx, 22);
 				{
-				setState(812); match(EndOfSubject);
+				setState(812);
+				match(EndOfSubject);
 				}
 				break;
 			case 23:
 				enterOuterAlt(_localctx, 23);
 				{
-				setState(813); match(PreviousMatchInSubject);
+				setState(813);
+				match(PreviousMatchInSubject);
 				}
 				break;
 			case 24:
 				enterOuterAlt(_localctx, 24);
 				{
-				setState(814); match(ResetStartMatch);
+				setState(814);
+				match(ResetStartMatch);
 				}
 				break;
 			case 25:
 				enterOuterAlt(_localctx, 25);
 				{
-				setState(815); match(OneDataUnit);
+				setState(815);
+				match(OneDataUnit);
 				}
 				break;
 			case 26:
 				enterOuterAlt(_localctx, 26);
 				{
-				setState(816); match(ExtendedUnicodeChar);
+				setState(816);
+				match(ExtendedUnicodeChar);
 				}
 				break;
 			}
@@ -2508,15 +3147,15 @@ public class PCREParser extends Parser {
 		public List<Cc_literalContext> cc_literal() {
 			return getRuleContexts(Cc_literalContext.class);
 		}
-		public Backreference_or_octalContext backreference_or_octal() {
-			return getRuleContext(Backreference_or_octalContext.class,0);
-		}
 		public Cc_literalContext cc_literal(int i) {
 			return getRuleContext(Cc_literalContext.class,i);
 		}
 		public TerminalNode Hyphen() { return getToken(PCREParser.Hyphen, 0); }
 		public Shared_atomContext shared_atom() {
 			return getRuleContext(Shared_atomContext.class,0);
+		}
+		public Backreference_or_octalContext backreference_or_octal() {
+			return getRuleContext(Backreference_or_octalContext.class,0);
 		}
 		public Cc_atomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2541,27 +3180,33 @@ public class PCREParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(819); cc_literal();
-				setState(820); match(Hyphen);
-				setState(821); cc_literal();
+				setState(819);
+				cc_literal();
+				setState(820);
+				match(Hyphen);
+				setState(821);
+				cc_literal();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(823); shared_atom();
+				setState(823);
+				shared_atom();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(824); cc_literal();
+				setState(824);
+				cc_literal();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(825); backreference_or_octal();
+				setState(825);
+				backreference_or_octal();
 				}
 				break;
 			}
@@ -2578,23 +3223,23 @@ public class PCREParser extends Parser {
 	}
 
 	public static class Shared_atomContext extends ParserRuleContext {
-		public TerminalNode WhiteSpace() { return getToken(PCREParser.WhiteSpace, 0); }
-		public TerminalNode VerticalWhiteSpace() { return getToken(PCREParser.VerticalWhiteSpace, 0); }
-		public TerminalNode NewLineSequence() { return getToken(PCREParser.NewLineSequence, 0); }
+		public TerminalNode POSIXNamedSet() { return getToken(PCREParser.POSIXNamedSet, 0); }
+		public TerminalNode POSIXNegatedNamedSet() { return getToken(PCREParser.POSIXNegatedNamedSet, 0); }
+		public TerminalNode ControlChar() { return getToken(PCREParser.ControlChar, 0); }
+		public TerminalNode DecimalDigit() { return getToken(PCREParser.DecimalDigit, 0); }
+		public TerminalNode NotDecimalDigit() { return getToken(PCREParser.NotDecimalDigit, 0); }
+		public TerminalNode HorizontalWhiteSpace() { return getToken(PCREParser.HorizontalWhiteSpace, 0); }
+		public TerminalNode NotHorizontalWhiteSpace() { return getToken(PCREParser.NotHorizontalWhiteSpace, 0); }
+		public TerminalNode NotNewLine() { return getToken(PCREParser.NotNewLine, 0); }
 		public TerminalNode CharWithProperty() { return getToken(PCREParser.CharWithProperty, 0); }
 		public TerminalNode CharWithoutProperty() { return getToken(PCREParser.CharWithoutProperty, 0); }
-		public TerminalNode ControlChar() { return getToken(PCREParser.ControlChar, 0); }
+		public TerminalNode NewLineSequence() { return getToken(PCREParser.NewLineSequence, 0); }
+		public TerminalNode WhiteSpace() { return getToken(PCREParser.WhiteSpace, 0); }
 		public TerminalNode NotWhiteSpace() { return getToken(PCREParser.NotWhiteSpace, 0); }
-		public TerminalNode WordChar() { return getToken(PCREParser.WordChar, 0); }
-		public TerminalNode NotHorizontalWhiteSpace() { return getToken(PCREParser.NotHorizontalWhiteSpace, 0); }
-		public TerminalNode POSIXNamedSet() { return getToken(PCREParser.POSIXNamedSet, 0); }
+		public TerminalNode VerticalWhiteSpace() { return getToken(PCREParser.VerticalWhiteSpace, 0); }
 		public TerminalNode NotVerticalWhiteSpace() { return getToken(PCREParser.NotVerticalWhiteSpace, 0); }
-		public TerminalNode NotDecimalDigit() { return getToken(PCREParser.NotDecimalDigit, 0); }
+		public TerminalNode WordChar() { return getToken(PCREParser.WordChar, 0); }
 		public TerminalNode NotWordChar() { return getToken(PCREParser.NotWordChar, 0); }
-		public TerminalNode DecimalDigit() { return getToken(PCREParser.DecimalDigit, 0); }
-		public TerminalNode NotNewLine() { return getToken(PCREParser.NotNewLine, 0); }
-		public TerminalNode POSIXNegatedNamedSet() { return getToken(PCREParser.POSIXNegatedNamedSet, 0); }
-		public TerminalNode HorizontalWhiteSpace() { return getToken(PCREParser.HorizontalWhiteSpace, 0); }
 		public Shared_atomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2620,8 +3265,9 @@ public class PCREParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ControlChar) | (1L << DecimalDigit) | (1L << NotDecimalDigit) | (1L << HorizontalWhiteSpace) | (1L << NotHorizontalWhiteSpace) | (1L << NotNewLine) | (1L << CharWithProperty) | (1L << CharWithoutProperty) | (1L << NewLineSequence) | (1L << WhiteSpace) | (1L << NotWhiteSpace) | (1L << VerticalWhiteSpace) | (1L << NotVerticalWhiteSpace) | (1L << WordChar) | (1L << NotWordChar) | (1L << POSIXNamedSet) | (1L << POSIXNegatedNamedSet))) != 0)) ) {
 			_errHandler.recoverInline(this);
+			} else {
+				consume();
 			}
-			consume();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2748,13 +3394,15 @@ public class PCREParser extends Parser {
 			case OtherChar:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(830); shared_literal();
+				setState(830);
+				shared_literal();
 				}
 				break;
 			case CharacterClassEnd:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(831); match(CharacterClassEnd);
+				setState(831);
+				match(CharacterClassEnd);
 				}
 				break;
 			default:
@@ -2773,20 +3421,20 @@ public class PCREParser extends Parser {
 	}
 
 	public static class Cc_literalContext extends ParserRuleContext {
-		public TerminalNode CharacterClassStart() { return getToken(PCREParser.CharacterClassStart, 0); }
-		public TerminalNode Caret() { return getToken(PCREParser.Caret, 0); }
-		public TerminalNode QuestionMark() { return getToken(PCREParser.QuestionMark, 0); }
-		public TerminalNode EndOfSubjectOrLine() { return getToken(PCREParser.EndOfSubjectOrLine, 0); }
 		public Shared_literalContext shared_literal() {
 			return getRuleContext(Shared_literalContext.class,0);
 		}
-		public TerminalNode OpenParen() { return getToken(PCREParser.OpenParen, 0); }
-		public TerminalNode Plus() { return getToken(PCREParser.Plus, 0); }
-		public TerminalNode WordBoundary() { return getToken(PCREParser.WordBoundary, 0); }
-		public TerminalNode Pipe() { return getToken(PCREParser.Pipe, 0); }
 		public TerminalNode Dot() { return getToken(PCREParser.Dot, 0); }
-		public TerminalNode CloseParen() { return getToken(PCREParser.CloseParen, 0); }
+		public TerminalNode CharacterClassStart() { return getToken(PCREParser.CharacterClassStart, 0); }
+		public TerminalNode Caret() { return getToken(PCREParser.Caret, 0); }
+		public TerminalNode QuestionMark() { return getToken(PCREParser.QuestionMark, 0); }
+		public TerminalNode Plus() { return getToken(PCREParser.Plus, 0); }
 		public TerminalNode Star() { return getToken(PCREParser.Star, 0); }
+		public TerminalNode WordBoundary() { return getToken(PCREParser.WordBoundary, 0); }
+		public TerminalNode EndOfSubjectOrLine() { return getToken(PCREParser.EndOfSubjectOrLine, 0); }
+		public TerminalNode Pipe() { return getToken(PCREParser.Pipe, 0); }
+		public TerminalNode OpenParen() { return getToken(PCREParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(PCREParser.CloseParen, 0); }
 		public Cc_literalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2895,73 +3543,85 @@ public class PCREParser extends Parser {
 			case OtherChar:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(834); shared_literal();
+				setState(834);
+				shared_literal();
 				}
 				break;
 			case Dot:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(835); match(Dot);
+				setState(835);
+				match(Dot);
 				}
 				break;
 			case CharacterClassStart:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(836); match(CharacterClassStart);
+				setState(836);
+				match(CharacterClassStart);
 				}
 				break;
 			case Caret:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(837); match(Caret);
+				setState(837);
+				match(Caret);
 				}
 				break;
 			case QuestionMark:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(838); match(QuestionMark);
+				setState(838);
+				match(QuestionMark);
 				}
 				break;
 			case Plus:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(839); match(Plus);
+				setState(839);
+				match(Plus);
 				}
 				break;
 			case Star:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(840); match(Star);
+				setState(840);
+				match(Star);
 				}
 				break;
 			case WordBoundary:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(841); match(WordBoundary);
+				setState(841);
+				match(WordBoundary);
 				}
 				break;
 			case EndOfSubjectOrLine:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(842); match(EndOfSubjectOrLine);
+				setState(842);
+				match(EndOfSubjectOrLine);
 				}
 				break;
 			case Pipe:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(843); match(Pipe);
+				setState(843);
+				match(Pipe);
 				}
 				break;
 			case OpenParen:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(844); match(OpenParen);
+				setState(844);
+				match(OpenParen);
 				}
 				break;
 			case CloseParen:
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(845); match(CloseParen);
+				setState(845);
+				match(CloseParen);
 				}
 				break;
 			default:
@@ -2980,38 +3640,38 @@ public class PCREParser extends Parser {
 	}
 
 	public static class Shared_literalContext extends ParserRuleContext {
-		public TerminalNode Hash() { return getToken(PCREParser.Hash, 0); }
-		public TerminalNode Colon() { return getToken(PCREParser.Colon, 0); }
-		public LetterContext letter() {
-			return getRuleContext(LetterContext.class,0);
-		}
-		public TerminalNode SingleQuote() { return getToken(PCREParser.SingleQuote, 0); }
-		public TerminalNode Comma() { return getToken(PCREParser.Comma, 0); }
-		public TerminalNode Hyphen() { return getToken(PCREParser.Hyphen, 0); }
-		public TerminalNode CarriageReturn() { return getToken(PCREParser.CarriageReturn, 0); }
-		public TerminalNode FormFeed() { return getToken(PCREParser.FormFeed, 0); }
-		public TerminalNode LessThan() { return getToken(PCREParser.LessThan, 0); }
-		public DigitContext digit() {
-			return getRuleContext(DigitContext.class,0);
-		}
-		public TerminalNode Tab() { return getToken(PCREParser.Tab, 0); }
-		public TerminalNode Quoted() { return getToken(PCREParser.Quoted, 0); }
-		public TerminalNode Exclamation() { return getToken(PCREParser.Exclamation, 0); }
-		public TerminalNode OtherChar() { return getToken(PCREParser.OtherChar, 0); }
-		public TerminalNode Ampersand() { return getToken(PCREParser.Ampersand, 0); }
-		public TerminalNode BellChar() { return getToken(PCREParser.BellChar, 0); }
-		public TerminalNode BlockQuoted() { return getToken(PCREParser.BlockQuoted, 0); }
-		public TerminalNode Underscore() { return getToken(PCREParser.Underscore, 0); }
-		public TerminalNode HexChar() { return getToken(PCREParser.HexChar, 0); }
-		public TerminalNode EscapeChar() { return getToken(PCREParser.EscapeChar, 0); }
-		public TerminalNode GreaterThan() { return getToken(PCREParser.GreaterThan, 0); }
-		public TerminalNode CloseBrace() { return getToken(PCREParser.CloseBrace, 0); }
-		public TerminalNode NewLine() { return getToken(PCREParser.NewLine, 0); }
-		public TerminalNode OpenBrace() { return getToken(PCREParser.OpenBrace, 0); }
 		public Octal_charContext octal_char() {
 			return getRuleContext(Octal_charContext.class,0);
 		}
+		public LetterContext letter() {
+			return getRuleContext(LetterContext.class,0);
+		}
+		public DigitContext digit() {
+			return getRuleContext(DigitContext.class,0);
+		}
+		public TerminalNode BellChar() { return getToken(PCREParser.BellChar, 0); }
+		public TerminalNode EscapeChar() { return getToken(PCREParser.EscapeChar, 0); }
+		public TerminalNode FormFeed() { return getToken(PCREParser.FormFeed, 0); }
+		public TerminalNode NewLine() { return getToken(PCREParser.NewLine, 0); }
+		public TerminalNode CarriageReturn() { return getToken(PCREParser.CarriageReturn, 0); }
+		public TerminalNode Tab() { return getToken(PCREParser.Tab, 0); }
+		public TerminalNode HexChar() { return getToken(PCREParser.HexChar, 0); }
+		public TerminalNode Quoted() { return getToken(PCREParser.Quoted, 0); }
+		public TerminalNode BlockQuoted() { return getToken(PCREParser.BlockQuoted, 0); }
+		public TerminalNode OpenBrace() { return getToken(PCREParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(PCREParser.CloseBrace, 0); }
+		public TerminalNode Comma() { return getToken(PCREParser.Comma, 0); }
+		public TerminalNode Hyphen() { return getToken(PCREParser.Hyphen, 0); }
+		public TerminalNode LessThan() { return getToken(PCREParser.LessThan, 0); }
+		public TerminalNode GreaterThan() { return getToken(PCREParser.GreaterThan, 0); }
+		public TerminalNode SingleQuote() { return getToken(PCREParser.SingleQuote, 0); }
+		public TerminalNode Underscore() { return getToken(PCREParser.Underscore, 0); }
+		public TerminalNode Colon() { return getToken(PCREParser.Colon, 0); }
+		public TerminalNode Hash() { return getToken(PCREParser.Hash, 0); }
 		public TerminalNode Equals() { return getToken(PCREParser.Equals, 0); }
+		public TerminalNode Exclamation() { return getToken(PCREParser.Exclamation, 0); }
+		public TerminalNode Ampersand() { return getToken(PCREParser.Ampersand, 0); }
+		public TerminalNode OtherChar() { return getToken(PCREParser.OtherChar, 0); }
 		public Shared_literalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3035,7 +3695,8 @@ public class PCREParser extends Parser {
 			case Backslash:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(848); octal_char();
+				setState(848);
+				octal_char();
 				}
 				break;
 			case ALC:
@@ -3092,7 +3753,8 @@ public class PCREParser extends Parser {
 			case ZUC:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(849); letter();
+				setState(849);
+				letter();
 				}
 				break;
 			case D1:
@@ -3107,145 +3769,169 @@ public class PCREParser extends Parser {
 			case D0:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(850); digit();
+				setState(850);
+				digit();
 				}
 				break;
 			case BellChar:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(851); match(BellChar);
+				setState(851);
+				match(BellChar);
 				}
 				break;
 			case EscapeChar:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(852); match(EscapeChar);
+				setState(852);
+				match(EscapeChar);
 				}
 				break;
 			case FormFeed:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(853); match(FormFeed);
+				setState(853);
+				match(FormFeed);
 				}
 				break;
 			case NewLine:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(854); match(NewLine);
+				setState(854);
+				match(NewLine);
 				}
 				break;
 			case CarriageReturn:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(855); match(CarriageReturn);
+				setState(855);
+				match(CarriageReturn);
 				}
 				break;
 			case Tab:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(856); match(Tab);
+				setState(856);
+				match(Tab);
 				}
 				break;
 			case HexChar:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(857); match(HexChar);
+				setState(857);
+				match(HexChar);
 				}
 				break;
 			case Quoted:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(858); match(Quoted);
+				setState(858);
+				match(Quoted);
 				}
 				break;
 			case BlockQuoted:
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(859); match(BlockQuoted);
+				setState(859);
+				match(BlockQuoted);
 				}
 				break;
 			case OpenBrace:
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(860); match(OpenBrace);
+				setState(860);
+				match(OpenBrace);
 				}
 				break;
 			case CloseBrace:
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(861); match(CloseBrace);
+				setState(861);
+				match(CloseBrace);
 				}
 				break;
 			case Comma:
 				enterOuterAlt(_localctx, 15);
 				{
-				setState(862); match(Comma);
+				setState(862);
+				match(Comma);
 				}
 				break;
 			case Hyphen:
 				enterOuterAlt(_localctx, 16);
 				{
-				setState(863); match(Hyphen);
+				setState(863);
+				match(Hyphen);
 				}
 				break;
 			case LessThan:
 				enterOuterAlt(_localctx, 17);
 				{
-				setState(864); match(LessThan);
+				setState(864);
+				match(LessThan);
 				}
 				break;
 			case GreaterThan:
 				enterOuterAlt(_localctx, 18);
 				{
-				setState(865); match(GreaterThan);
+				setState(865);
+				match(GreaterThan);
 				}
 				break;
 			case SingleQuote:
 				enterOuterAlt(_localctx, 19);
 				{
-				setState(866); match(SingleQuote);
+				setState(866);
+				match(SingleQuote);
 				}
 				break;
 			case Underscore:
 				enterOuterAlt(_localctx, 20);
 				{
-				setState(867); match(Underscore);
+				setState(867);
+				match(Underscore);
 				}
 				break;
 			case Colon:
 				enterOuterAlt(_localctx, 21);
 				{
-				setState(868); match(Colon);
+				setState(868);
+				match(Colon);
 				}
 				break;
 			case Hash:
 				enterOuterAlt(_localctx, 22);
 				{
-				setState(869); match(Hash);
+				setState(869);
+				match(Hash);
 				}
 				break;
 			case Equals:
 				enterOuterAlt(_localctx, 23);
 				{
-				setState(870); match(Equals);
+				setState(870);
+				match(Equals);
 				}
 				break;
 			case Exclamation:
 				enterOuterAlt(_localctx, 24);
 				{
-				setState(871); match(Exclamation);
+				setState(871);
+				match(Exclamation);
 				}
 				break;
 			case Ampersand:
 				enterOuterAlt(_localctx, 25);
 				{
-				setState(872); match(Ampersand);
+				setState(872);
+				match(Ampersand);
 				}
 				break;
 			case OtherChar:
 				enterOuterAlt(_localctx, 26);
 				{
-				setState(873); match(OtherChar);
+				setState(873);
+				match(OtherChar);
 				}
 				break;
 			default:
@@ -3287,7 +3973,8 @@ public class PCREParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(876); digits();
+			setState(876);
+			digits();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3303,16 +3990,16 @@ public class PCREParser extends Parser {
 
 	public static class Octal_charContext extends ParserRuleContext {
 		public TerminalNode Backslash() { return getToken(PCREParser.Backslash, 0); }
-		public TerminalNode D0() { return getToken(PCREParser.D0, 0); }
-		public Octal_digitContext octal_digit(int i) {
-			return getRuleContext(Octal_digitContext.class,i);
-		}
-		public TerminalNode D3() { return getToken(PCREParser.D3, 0); }
 		public List<Octal_digitContext> octal_digit() {
 			return getRuleContexts(Octal_digitContext.class);
 		}
+		public Octal_digitContext octal_digit(int i) {
+			return getRuleContext(Octal_digitContext.class,i);
+		}
+		public TerminalNode D0() { return getToken(PCREParser.D0, 0); }
 		public TerminalNode D1() { return getToken(PCREParser.D1, 0); }
 		public TerminalNode D2() { return getToken(PCREParser.D2, 0); }
+		public TerminalNode D3() { return getToken(PCREParser.D3, 0); }
 		public Octal_charContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3338,22 +4025,29 @@ public class PCREParser extends Parser {
 			switch ( getInterpreter().adaptivePredict(_input,42,_ctx) ) {
 			case 1:
 				{
-				setState(878); match(Backslash);
+				setState(878);
+				match(Backslash);
 				setState(879);
 				_la = _input.LA(1);
 				if ( !(((((_la - 115)) & ~0x3f) == 0 && ((1L << (_la - 115)) & ((1L << (D1 - 115)) | (1L << (D2 - 115)) | (1L << (D3 - 115)) | (1L << (D0 - 115)))) != 0)) ) {
 				_errHandler.recoverInline(this);
+				} else {
+					consume();
 				}
-				consume();
-				setState(880); octal_digit();
-				setState(881); octal_digit();
+				setState(880);
+				octal_digit();
+				setState(881);
+				octal_digit();
 				}
 				break;
 			case 2:
 				{
-				setState(883); match(Backslash);
-				setState(884); octal_digit();
-				setState(885); octal_digit();
+				setState(883);
+				match(Backslash);
+				setState(884);
+				octal_digit();
+				setState(885);
+				octal_digit();
 				}
 				break;
 			}
@@ -3372,13 +4066,13 @@ public class PCREParser extends Parser {
 
 	public static class Octal_digitContext extends ParserRuleContext {
 		public TerminalNode D0() { return getToken(PCREParser.D0, 0); }
-		public TerminalNode D4() { return getToken(PCREParser.D4, 0); }
-		public TerminalNode D3() { return getToken(PCREParser.D3, 0); }
-		public TerminalNode D7() { return getToken(PCREParser.D7, 0); }
-		public TerminalNode D6() { return getToken(PCREParser.D6, 0); }
 		public TerminalNode D1() { return getToken(PCREParser.D1, 0); }
 		public TerminalNode D2() { return getToken(PCREParser.D2, 0); }
+		public TerminalNode D3() { return getToken(PCREParser.D3, 0); }
+		public TerminalNode D4() { return getToken(PCREParser.D4, 0); }
 		public TerminalNode D5() { return getToken(PCREParser.D5, 0); }
+		public TerminalNode D6() { return getToken(PCREParser.D6, 0); }
+		public TerminalNode D7() { return getToken(PCREParser.D7, 0); }
 		public Octal_digitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3404,8 +4098,9 @@ public class PCREParser extends Parser {
 			_la = _input.LA(1);
 			if ( !(((((_la - 115)) & ~0x3f) == 0 && ((1L << (_la - 115)) & ((1L << (D1 - 115)) | (1L << (D2 - 115)) | (1L << (D3 - 115)) | (1L << (D4 - 115)) | (1L << (D5 - 115)) | (1L << (D6 - 115)) | (1L << (D7 - 115)) | (1L << (D0 - 115)))) != 0)) ) {
 			_errHandler.recoverInline(this);
+			} else {
+				consume();
 			}
-			consume();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3420,11 +4115,11 @@ public class PCREParser extends Parser {
 	}
 
 	public static class DigitsContext extends ParserRuleContext {
-		public DigitContext digit(int i) {
-			return getRuleContext(DigitContext.class,i);
-		}
 		public List<DigitContext> digit() {
 			return getRuleContexts(DigitContext.class);
+		}
+		public DigitContext digit(int i) {
+			return getRuleContext(DigitContext.class,i);
 		}
 		public DigitsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3455,7 +4150,8 @@ public class PCREParser extends Parser {
 				case 1:
 					{
 					{
-					setState(891); digit();
+					setState(891);
+					digit();
 					}
 					}
 					break;
@@ -3480,16 +4176,16 @@ public class PCREParser extends Parser {
 	}
 
 	public static class DigitContext extends ParserRuleContext {
-		public TerminalNode D8() { return getToken(PCREParser.D8, 0); }
 		public TerminalNode D0() { return getToken(PCREParser.D0, 0); }
-		public TerminalNode D4() { return getToken(PCREParser.D4, 0); }
-		public TerminalNode D9() { return getToken(PCREParser.D9, 0); }
-		public TerminalNode D3() { return getToken(PCREParser.D3, 0); }
-		public TerminalNode D7() { return getToken(PCREParser.D7, 0); }
-		public TerminalNode D6() { return getToken(PCREParser.D6, 0); }
 		public TerminalNode D1() { return getToken(PCREParser.D1, 0); }
 		public TerminalNode D2() { return getToken(PCREParser.D2, 0); }
+		public TerminalNode D3() { return getToken(PCREParser.D3, 0); }
+		public TerminalNode D4() { return getToken(PCREParser.D4, 0); }
 		public TerminalNode D5() { return getToken(PCREParser.D5, 0); }
+		public TerminalNode D6() { return getToken(PCREParser.D6, 0); }
+		public TerminalNode D7() { return getToken(PCREParser.D7, 0); }
+		public TerminalNode D8() { return getToken(PCREParser.D8, 0); }
+		public TerminalNode D9() { return getToken(PCREParser.D9, 0); }
 		public DigitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3515,8 +4211,9 @@ public class PCREParser extends Parser {
 			_la = _input.LA(1);
 			if ( !(((((_la - 115)) & ~0x3f) == 0 && ((1L << (_la - 115)) & ((1L << (D1 - 115)) | (1L << (D2 - 115)) | (1L << (D3 - 115)) | (1L << (D4 - 115)) | (1L << (D5 - 115)) | (1L << (D6 - 115)) | (1L << (D7 - 115)) | (1L << (D8 - 115)) | (1L << (D9 - 115)) | (1L << (D0 - 115)))) != 0)) ) {
 			_errHandler.recoverInline(this);
+			} else {
+				consume();
 			}
-			consume();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3554,7 +4251,8 @@ public class PCREParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(898); alpha_nums();
+			setState(898);
+			alpha_nums();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3569,21 +4267,21 @@ public class PCREParser extends Parser {
 	}
 
 	public static class Alpha_numsContext extends ParserRuleContext {
-		public LetterContext letter(int i) {
-			return getRuleContext(LetterContext.class,i);
-		}
-		public DigitContext digit(int i) {
-			return getRuleContext(DigitContext.class,i);
-		}
 		public List<LetterContext> letter() {
 			return getRuleContexts(LetterContext.class);
 		}
-		public List<DigitContext> digit() {
-			return getRuleContexts(DigitContext.class);
+		public LetterContext letter(int i) {
+			return getRuleContext(LetterContext.class,i);
 		}
 		public List<TerminalNode> Underscore() { return getTokens(PCREParser.Underscore); }
 		public TerminalNode Underscore(int i) {
 			return getToken(PCREParser.Underscore, i);
+		}
+		public List<DigitContext> digit() {
+			return getRuleContexts(DigitContext.class);
+		}
+		public DigitContext digit(int i) {
+			return getRuleContext(DigitContext.class,i);
 		}
 		public Alpha_numsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3661,12 +4359,14 @@ public class PCREParser extends Parser {
 			case YUC:
 			case ZUC:
 				{
-				setState(900); letter();
+				setState(900);
+				letter();
 				}
 				break;
 			case Underscore:
 				{
-				setState(901); match(Underscore);
+				setState(901);
+				match(Underscore);
 				}
 				break;
 			default:
@@ -3732,12 +4432,14 @@ public class PCREParser extends Parser {
 				case YUC:
 				case ZUC:
 					{
-					setState(904); letter();
+					setState(904);
+					letter();
 					}
 					break;
 				case Underscore:
 					{
-					setState(905); match(Underscore);
+					setState(905);
+					match(Underscore);
 					}
 					break;
 				case D1:
@@ -3751,7 +4453,8 @@ public class PCREParser extends Parser {
 				case D9:
 				case D0:
 					{
-					setState(906); digit();
+					setState(906);
+					digit();
 					}
 					break;
 				default:
@@ -3809,7 +4512,8 @@ public class PCREParser extends Parser {
 			do {
 				{
 				{
-				setState(912); non_close_paren();
+				setState(912);
+				non_close_paren();
 				}
 				}
 				setState(915); 
@@ -3856,8 +4560,9 @@ public class PCREParser extends Parser {
 			_la = _input.LA(1);
 			if ( _la <= 0 || (_la==CloseParen) ) {
 			_errHandler.recoverInline(this);
+			} else {
+				consume();
 			}
-			consume();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3872,58 +4577,58 @@ public class PCREParser extends Parser {
 	}
 
 	public static class LetterContext extends ParserRuleContext {
-		public TerminalNode QUC() { return getToken(PCREParser.QUC, 0); }
-		public TerminalNode TLC() { return getToken(PCREParser.TLC, 0); }
-		public TerminalNode XLC() { return getToken(PCREParser.XLC, 0); }
-		public TerminalNode FUC() { return getToken(PCREParser.FUC, 0); }
-		public TerminalNode SLC() { return getToken(PCREParser.SLC, 0); }
-		public TerminalNode ZLC() { return getToken(PCREParser.ZLC, 0); }
-		public TerminalNode KUC() { return getToken(PCREParser.KUC, 0); }
-		public TerminalNode NLC() { return getToken(PCREParser.NLC, 0); }
-		public TerminalNode ULC() { return getToken(PCREParser.ULC, 0); }
-		public TerminalNode KLC() { return getToken(PCREParser.KLC, 0); }
-		public TerminalNode YUC() { return getToken(PCREParser.YUC, 0); }
+		public TerminalNode ALC() { return getToken(PCREParser.ALC, 0); }
+		public TerminalNode BLC() { return getToken(PCREParser.BLC, 0); }
 		public TerminalNode CLC() { return getToken(PCREParser.CLC, 0); }
 		public TerminalNode DLC() { return getToken(PCREParser.DLC, 0); }
-		public TerminalNode MLC() { return getToken(PCREParser.MLC, 0); }
-		public TerminalNode RUC() { return getToken(PCREParser.RUC, 0); }
-		public TerminalNode YLC() { return getToken(PCREParser.YLC, 0); }
-		public TerminalNode QLC() { return getToken(PCREParser.QLC, 0); }
-		public TerminalNode ILC() { return getToken(PCREParser.ILC, 0); }
-		public TerminalNode GLC() { return getToken(PCREParser.GLC, 0); }
-		public TerminalNode CUC() { return getToken(PCREParser.CUC, 0); }
-		public TerminalNode JUC() { return getToken(PCREParser.JUC, 0); }
-		public TerminalNode VLC() { return getToken(PCREParser.VLC, 0); }
-		public TerminalNode HUC() { return getToken(PCREParser.HUC, 0); }
-		public TerminalNode GUC() { return getToken(PCREParser.GUC, 0); }
 		public TerminalNode ELC() { return getToken(PCREParser.ELC, 0); }
-		public TerminalNode VUC() { return getToken(PCREParser.VUC, 0); }
-		public TerminalNode BLC() { return getToken(PCREParser.BLC, 0); }
+		public TerminalNode FLC() { return getToken(PCREParser.FLC, 0); }
+		public TerminalNode GLC() { return getToken(PCREParser.GLC, 0); }
+		public TerminalNode HLC() { return getToken(PCREParser.HLC, 0); }
+		public TerminalNode ILC() { return getToken(PCREParser.ILC, 0); }
+		public TerminalNode JLC() { return getToken(PCREParser.JLC, 0); }
+		public TerminalNode KLC() { return getToken(PCREParser.KLC, 0); }
+		public TerminalNode LLC() { return getToken(PCREParser.LLC, 0); }
+		public TerminalNode MLC() { return getToken(PCREParser.MLC, 0); }
+		public TerminalNode NLC() { return getToken(PCREParser.NLC, 0); }
+		public TerminalNode OLC() { return getToken(PCREParser.OLC, 0); }
+		public TerminalNode PLC() { return getToken(PCREParser.PLC, 0); }
+		public TerminalNode QLC() { return getToken(PCREParser.QLC, 0); }
+		public TerminalNode RLC() { return getToken(PCREParser.RLC, 0); }
+		public TerminalNode SLC() { return getToken(PCREParser.SLC, 0); }
+		public TerminalNode TLC() { return getToken(PCREParser.TLC, 0); }
+		public TerminalNode ULC() { return getToken(PCREParser.ULC, 0); }
+		public TerminalNode VLC() { return getToken(PCREParser.VLC, 0); }
+		public TerminalNode WLC() { return getToken(PCREParser.WLC, 0); }
+		public TerminalNode XLC() { return getToken(PCREParser.XLC, 0); }
+		public TerminalNode YLC() { return getToken(PCREParser.YLC, 0); }
+		public TerminalNode ZLC() { return getToken(PCREParser.ZLC, 0); }
+		public TerminalNode AUC() { return getToken(PCREParser.AUC, 0); }
+		public TerminalNode BUC() { return getToken(PCREParser.BUC, 0); }
+		public TerminalNode CUC() { return getToken(PCREParser.CUC, 0); }
+		public TerminalNode DUC() { return getToken(PCREParser.DUC, 0); }
+		public TerminalNode EUC() { return getToken(PCREParser.EUC, 0); }
+		public TerminalNode FUC() { return getToken(PCREParser.FUC, 0); }
+		public TerminalNode GUC() { return getToken(PCREParser.GUC, 0); }
+		public TerminalNode HUC() { return getToken(PCREParser.HUC, 0); }
+		public TerminalNode IUC() { return getToken(PCREParser.IUC, 0); }
+		public TerminalNode JUC() { return getToken(PCREParser.JUC, 0); }
+		public TerminalNode KUC() { return getToken(PCREParser.KUC, 0); }
+		public TerminalNode LUC() { return getToken(PCREParser.LUC, 0); }
+		public TerminalNode MUC() { return getToken(PCREParser.MUC, 0); }
+		public TerminalNode NUC() { return getToken(PCREParser.NUC, 0); }
 		public TerminalNode OUC() { return getToken(PCREParser.OUC, 0); }
 		public TerminalNode PUC() { return getToken(PCREParser.PUC, 0); }
-		public TerminalNode UUC() { return getToken(PCREParser.UUC, 0); }
-		public TerminalNode NUC() { return getToken(PCREParser.NUC, 0); }
-		public TerminalNode MUC() { return getToken(PCREParser.MUC, 0); }
-		public TerminalNode XUC() { return getToken(PCREParser.XUC, 0); }
-		public TerminalNode EUC() { return getToken(PCREParser.EUC, 0); }
-		public TerminalNode LLC() { return getToken(PCREParser.LLC, 0); }
-		public TerminalNode ZUC() { return getToken(PCREParser.ZUC, 0); }
-		public TerminalNode BUC() { return getToken(PCREParser.BUC, 0); }
-		public TerminalNode OLC() { return getToken(PCREParser.OLC, 0); }
-		public TerminalNode WLC() { return getToken(PCREParser.WLC, 0); }
-		public TerminalNode LUC() { return getToken(PCREParser.LUC, 0); }
-		public TerminalNode AUC() { return getToken(PCREParser.AUC, 0); }
-		public TerminalNode HLC() { return getToken(PCREParser.HLC, 0); }
-		public TerminalNode DUC() { return getToken(PCREParser.DUC, 0); }
-		public TerminalNode RLC() { return getToken(PCREParser.RLC, 0); }
-		public TerminalNode WUC() { return getToken(PCREParser.WUC, 0); }
-		public TerminalNode TUC() { return getToken(PCREParser.TUC, 0); }
-		public TerminalNode PLC() { return getToken(PCREParser.PLC, 0); }
-		public TerminalNode FLC() { return getToken(PCREParser.FLC, 0); }
-		public TerminalNode IUC() { return getToken(PCREParser.IUC, 0); }
-		public TerminalNode JLC() { return getToken(PCREParser.JLC, 0); }
-		public TerminalNode ALC() { return getToken(PCREParser.ALC, 0); }
+		public TerminalNode QUC() { return getToken(PCREParser.QUC, 0); }
+		public TerminalNode RUC() { return getToken(PCREParser.RUC, 0); }
 		public TerminalNode SUC() { return getToken(PCREParser.SUC, 0); }
+		public TerminalNode TUC() { return getToken(PCREParser.TUC, 0); }
+		public TerminalNode UUC() { return getToken(PCREParser.UUC, 0); }
+		public TerminalNode VUC() { return getToken(PCREParser.VUC, 0); }
+		public TerminalNode WUC() { return getToken(PCREParser.WUC, 0); }
+		public TerminalNode XUC() { return getToken(PCREParser.XUC, 0); }
+		public TerminalNode YUC() { return getToken(PCREParser.YUC, 0); }
+		public TerminalNode ZUC() { return getToken(PCREParser.ZUC, 0); }
 		public LetterContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3949,8 +4654,9 @@ public class PCREParser extends Parser {
 			_la = _input.LA(1);
 			if ( !(((((_la - 63)) & ~0x3f) == 0 && ((1L << (_la - 63)) & ((1L << (ALC - 63)) | (1L << (BLC - 63)) | (1L << (CLC - 63)) | (1L << (DLC - 63)) | (1L << (ELC - 63)) | (1L << (FLC - 63)) | (1L << (GLC - 63)) | (1L << (HLC - 63)) | (1L << (ILC - 63)) | (1L << (JLC - 63)) | (1L << (KLC - 63)) | (1L << (LLC - 63)) | (1L << (MLC - 63)) | (1L << (NLC - 63)) | (1L << (OLC - 63)) | (1L << (PLC - 63)) | (1L << (QLC - 63)) | (1L << (RLC - 63)) | (1L << (SLC - 63)) | (1L << (TLC - 63)) | (1L << (ULC - 63)) | (1L << (VLC - 63)) | (1L << (WLC - 63)) | (1L << (XLC - 63)) | (1L << (YLC - 63)) | (1L << (ZLC - 63)) | (1L << (AUC - 63)) | (1L << (BUC - 63)) | (1L << (CUC - 63)) | (1L << (DUC - 63)) | (1L << (EUC - 63)) | (1L << (FUC - 63)) | (1L << (GUC - 63)) | (1L << (HUC - 63)) | (1L << (IUC - 63)) | (1L << (JUC - 63)) | (1L << (KUC - 63)) | (1L << (LUC - 63)) | (1L << (MUC - 63)) | (1L << (NUC - 63)) | (1L << (OUC - 63)) | (1L << (PUC - 63)) | (1L << (QUC - 63)) | (1L << (RUC - 63)) | (1L << (SUC - 63)) | (1L << (TUC - 63)) | (1L << (UUC - 63)) | (1L << (VUC - 63)) | (1L << (WUC - 63)) | (1L << (XUC - 63)) | (1L << (YUC - 63)) | (1L << (ZUC - 63)))) != 0)) ) {
 			_errHandler.recoverInline(this);
+			} else {
+				consume();
 			}
-			consume();
 			}
 		}
 		catch (RecognitionException re) {
